@@ -25,7 +25,7 @@ async function searchGIF(search){
 async function trendingGIF(){
 
     //Hago el fetch hacia la API de giphy y espero la respuesta de la promesa.
-    let resp = await fetch(`https://api.giphy.com/v1/gifs/trending?&api_key=${apiKey}&limit=15`);
+    let resp = await fetch(`https://api.giphy.com/v1/gifs/trending?&api_key=${apiKey}&limit=3`);
     let info = await resp.json();
     let carrousel = document.getElementById("carrousel");
 
@@ -239,6 +239,8 @@ function runSearch(){
     trendTitle.classList.add("hidden");
     results.classList.remove("hidden");
     results.classList.add("search-results");
+
+    seeMoreClicks = 1;
 
     searchGIF(search.value);
 

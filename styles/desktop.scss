@@ -1,7 +1,60 @@
 @import "variables.scss";
 @import "mixins.scss";
 
+
+
 @media screen and (min-width: 1024px){
+
+    %hover{
+        .filter{
+            display: initial;
+
+        }
+
+        .gif-btn-ctn{
+            display: flex;
+            flex-flow: row wrap;
+            width: max-content;
+            opacity: 0.8;
+            justify-self: flex-end;
+            align-self: flex-start;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            img{
+                width: 2rem;
+                margin: 0.2rem;
+            }
+
+        }
+
+        .gif-title-ctn{
+            display: flex;
+            flex-flow: column wrap;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            z-index: 29;
+            
+            .gif-title{
+                color: white;
+                font-size: 1rem;
+                font-family: $text-font;
+            }
+
+            .gif-author{
+                font-size: .9rem;
+                color: white;
+                width: 100%;
+                opacity: .6;
+                font-family: $text-font;
+            }
+        }
+    }
+
     a{
         color: $main-violet;
         font-weight: bold;
@@ -218,144 +271,66 @@
                             
                                 &:hover{
                             
-                                    .filter{
-                                        display: initial;
-                            
-                                    }
-                            
-                                    .gif-btn-ctn{
-                                        display: flex;
-                                        flex-flow: row wrap;
-                                        width: max-content;
-                                        opacity: 0.8;
-                                        justify-self: flex-end;
-                                        align-self: flex-start;
-                                        position: absolute;
-                                        top: 0;
-                                        right: 0;
-                                        z-index: 10;
-                                        img{
-                                            width: 2rem;
-                                            margin: 0.2rem;
-                                        }
-                            
-                                    }
-        
-                                    .gif-title-ctn{
-                                        display: flex;
-                                        flex-flow: column wrap;
-                                        position: absolute;
-                                        bottom: 0;
-                                        left: 0;
-                                        
-                                        .gif-title{
-                                            color: white;
-                                        }
-        
-                                        .gif-author{
-                                            font-size: 1rem;
-                                            color: white;
-                                            width: 100%;
-                                            opacity: 1;
-                                        }
-                                    }
+                                    @extend %hover;
                                 }
                             }
                         }           
     
                     }
-                }
-
-                
-                   
+                } 
 
             }
         }
 
         .search-results{
 
-            .gif-card{
-                display: flex;
-                flex-flow: row wrap;
-                position: relative;
-                margin: 2rem 1.3rem 1rem 1.3rem;
-            
-                .gif-ctn{
-                    height: 10rem;
-                    width: auto;
-            
-                    .gif{
-                        height: 100%;
-                        width: auto;
-                    }
-                }
-            
-                .filter{
-                    display: none;
-                    width: 100%;
-                    height: 100%;
-                    background-color: $main-violet;
-                    opacity: 0.6;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            
-                .gif-btn-ctn{
-                    display: none;
-                }
+            .search-container{
+                width: 90%;
+                margin: 1rem;
 
-                .gif-title-ctn{
-                    display: none;
-                }
-            
-                &:hover{
-            
-                    .filter{
-                        display: initial;
-            
+                .gif-card{
+                    display: flex;
+                    flex-flow: row wrap;
+                    position: relative;
+                    margin: 1rem 1rem 1rem 1rem;
+                
+                    .gif-ctn{
+    
+                        width: 16.25rem;
+                        height: 12.5rem;
+                
+                        .gif{
+                            height: 100%;
+                            width: 100%;
+                        }
                     }
-            
-                    .gif-btn-ctn{
-                        display: flex;
-                        flex-flow: row wrap;
-                        width: max-content;
-                        opacity: 0.8;
-                        justify-self: flex-end;
-                        align-self: flex-start;
+                
+                    .filter{
+                        display: none;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $main-violet;
+                        opacity: 0.6;
                         position: absolute;
                         top: 0;
-                        right: 0;
-                        z-index: 10;
-                        img{
-                            width: 2rem;
-                            margin: 0.2rem;
-                        }
-            
-                    }
-
-                    .gif-title-ctn{
-                        display: flex;
-                        flex-flow: column wrap;
-                        position: absolute;
-                        bottom: 0;
                         left: 0;
+                    }
+                
+                    .gif-btn-ctn{
+                        display: none;
+                    }
+    
+                    .gif-title-ctn{
+                        display: none;
+                    }
+                
+                    &:hover{
                         
-                        .gif-title{
-                            color: white;
-                            font-family: $text-font;
-                        }
-
-                        .gif-author{
-                            font-size: 1rem;
-                            color: white;
-                            width: 100%;
-                            opacity: 1;
-                            font-family: $text-font;
-                        }
+                        @extend %hover;
                     }
                 }
             }
+            
         }
     }
 

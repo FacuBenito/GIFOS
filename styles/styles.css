@@ -235,11 +235,11 @@ main {
         display: flex;
         flex-flow: row wrap;
         position: relative;
-        margin-top: 1rem; }
+        margin-top: 1rem;
+        margin: 0.5rem 0.5rem; }
         main .search-results .search-container .gif-card .gif-ctn {
           width: 9.75rem;
-          height: 7.5rem;
-          margin: 0 0.5rem; }
+          height: 7.5rem; }
           main .search-results .search-container .gif-card .gif-ctn .gif {
             height: 100%;
             width: 100%; }
