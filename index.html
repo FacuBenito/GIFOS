@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <img src="assets/logo-mobile.svg" alt="logo-mobile-lite">
+        <img src="assets/logo-mobile.svg" alt="logo-mobile-lite" id="home">
 
         <input type="checkbox" id="menu">
 
@@ -22,16 +22,16 @@
 
         <nav>
             <ul>
-                <li><a href="">Modo Nocturno</a></li>
-                <li><a href="">Favoritos</a></li>
-                <li><a href="">Mis GIFOS</a></li>
-                <li><img src="assets/button-crear-gifo.svg" alt="boton-crear" id="create-gif"></li>
+                <li id="dark-mode-btn"><a href="#">Modo Nocturno</a></li>
+                <li id="favorites-btn"><a href="#">Favoritos</a></li>
+                <li id="my-gifos-btn"><a href="#">Mis GIFOS</a></li>
+                <li id="create-gif-btn"><img src="assets/button-crear-gifo.svg" alt="boton-crear" id="create-gif"></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="intro" id="intro">
+        <section class="intro could-hide" id="intro">
             <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
             <img src="assets/ilustra_header.svg" alt="search-bar-pic">
 
@@ -54,7 +54,7 @@
             </div>
         </section>
 
-        <section id="search-results" class="hidden">
+        <section id="search-results" class="hidden could-hide">
             <h2 id="search-title"></h2>
             <div class="search-container" id="search-results-ctn">
 
@@ -84,7 +84,16 @@
             <button id="see-more">VER MÁS</button>
         </section>
 
-        <section class="trending">
+        <section id="favorites" class="hidden could-hide">
+            <img src="assets/icon-favoritos.svg" alt="">
+            <h2>Favoritos</h2>
+        </section>
+
+        <section id="create" class="hidden could-hide"></section>
+        <section id="my-gifos" class="hidden could-hide"></section>
+        <section id="expanded" class="hidden could-hide"></section>
+
+        <section class="trending" id="trending">
             <article class="trends-container" id="trends-container">
                 <h2>Trending GIFOS</h2>
                 <p>Mira los últimos <br> GIFOS de nuestra comunidad</p>
@@ -110,12 +119,6 @@
 
             </article>
         </section>
-
-
-        <section id="favorites" class="hidden"></section>
-        <section id="create" class="hidden"></section>
-        <section id="my-gifos" class="hidden"></section>
-        <section id="expanded" class="hidden"></section>
     </main>
     <footer>
         <section class="share">

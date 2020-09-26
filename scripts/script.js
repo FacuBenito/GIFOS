@@ -19,6 +19,8 @@ async function searchGIF(search){
 
     let searchTitle = document.getElementById("search-title");
     searchTitle.textContent = search;
+    searchTitle.style.textTransform = "capitalize";
+
 
     for (let i = 0; i < limit; i++){
         addGIFToDOM(gifArr[i], searchResultsCtn);
@@ -79,12 +81,47 @@ let glass = document.getElementById("search-icon");
 let searchBar = document.getElementById("search-bar");
 let search = document.getElementById("search-input");
 let seeMore = document.getElementById("see-more");
+let favorites = document.getElementById("favorites");
+let favoritesBtn = document.getElementById("favorites-btn");
+let createGif = document.getElementById("create");
+let createBtn = document.getElementById("create-gif-btn");
+let myGifos = document.getElementById("my-gifos");
+let myGifosBtn = document.getElementById("my-gifos-btn");
+let dark = document.getElementById("dark-mode");
+let darkBtn = document.getElementById("dark-mode-btn");
+let results = document.getElementById("search-results");
+let intro = document.getElementById("intro");
+let home = document.getElementById("home");
+let trendingTitle = document.getElementById("trend-title-container");
+let trending = document.getElementById("trending")
+let menu = document.getElementById("menu")
+let hiddenSections = document.querySelectorAll("section.could-hide")
 
 searchBar.addEventListener("focusin", searchSwitch);
 searchBar.addEventListener("focusout", deSwitch);
 search.addEventListener("keyup", autocomplete);
 cross.addEventListener("mousedown", () => search.value = "");
 glass.addEventListener("mousedown", runSearch);
+favorites.addEventListener("click", displayFavorites);
+
+home.addEventListener("click", () => {
+
+    hiddenSections.forEach(section => section.classList.add("hidden"));
+
+    intro.classList.remove("hidden");
+    trendingTitle.classList.remove("hidden");
+    search.value = "";
+    menu.checked = false;
+});
+
+favoritesBtn.addEventListener("click", () => {
+
+    hiddenSections.forEach(section => section.classList.add("hidden"));
+
+    favorites.classList.remove("hidden");
+    menu.checked = false;
+
+});
 
 seeMore.addEventListener("click", () => {
     seeMoreClicks = seeMoreClicks + 1;
@@ -114,7 +151,6 @@ function addGIFToTrending(element){
     //Insertamos el img al contenedor de GIF y el contenedor al carrousel
     gifCtn.appendChild(gif);
     carrousel.appendChild(gifCtn);
-
 }
 
 function addGIFToDOM(gif, container){
@@ -134,8 +170,6 @@ function addGIFToDOM(gif, container){
 
     let gifInfo = gif.title.split("GIF by");
 
-
-
     if (gifInfo.length === 1){
         gifAuthor.textContent = "Anonymous";
         gifTitle.textContent = gifInfo[0];
@@ -150,6 +184,10 @@ function addGIFToDOM(gif, container){
     let downloadBtn = gifClone.children[2].children[1];
     let expandBtn = gifClone.children[2].children[2];
 
+    favBtn.style.cursor = "pointer";
+    downloadBtn.style.cursor = "pointer";
+    expandBtn.style.cursor = "pointer";
+
     let onFavs = favGifs.find(giphy => giphy === gif.id)
 
     if (onFavs !== undefined){
@@ -160,7 +198,6 @@ function addGIFToDOM(gif, container){
     favBtn.addEventListener("click", addToFavs);
 
     container.appendChild(gifClone);
-
 }
 
 //Me traigo las palabras del trending, como son 20 me quedo con las primeras 5 y las guardo en el p que corresponde
@@ -169,25 +206,20 @@ function addToTrending(words){
     let trending = document.getElementById("trending-words");
 
     words.splice(5, 20);
-    console.log(words);
 
     for (let i = 0; i < words.length; i++){
         let word = document.createElement("span");
 
-        if (i < 4){
-            word.textContent = words[i] + ", "
-        }else{
-            word.textContent = words[i]
-        }
+        word.textContent += (i!==4) ? (words[i] + ", ") : (words[i] + "  ");
+        word.style.cursor = "pointer";
 
         trending.appendChild(word);
         
         word.addEventListener("mousedown", () =>{
-            search.value = word.textContent;
+            search.value = word.textContent.slice(0, -2);
             runSearch();
         })
     }
-
 }
 
 //Al hacer click en la búsqueda, hago aparecer la cruz e invierto los lugares con la lupa.
@@ -226,7 +258,8 @@ function autocompleteInDOM(complete, sugCtn){
 
     //Le pongo el valor del autocompletado a la sugerencia
     name.textContent = complete
-
+    name.style.cursor = "pointer"
+    
     suggestion.appendChild(img);
     suggestion.appendChild(name);
 
@@ -255,12 +288,9 @@ function deCompleteInDOM(){
     glass.src = "assets/icon-search.svg"
     sugCtn.classList.add("hidden");
     sugCtn.textContent = "";
-
 }
 
 function runSearch(){
-    
-    let results = document.getElementById("search-results");
 
     results.classList.remove("hidden");
     results.classList.add("search-results");
@@ -268,7 +298,6 @@ function runSearch(){
     seeMoreClicks = 1;
 
     searchGIF(search.value);
-
 }
 
 function addGIFToSearch(element){
@@ -301,5 +330,13 @@ function addToFavs(){
 
     let favsAsString = JSON.stringify(favGifs);
     localStorage.setItem("favGIFs", favsAsString);
+}
 
+function displayFavorites(){
+
+    favorites.classList.remove("hidden");
+    search.classList.add("hidden");
+    myGifos.classList.add("hidden");
+    intro.classList.add("hidden");
+    createGif.classList.add("hidden");
 }

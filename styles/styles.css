@@ -7,14 +7,14 @@ a {
   color: white;
   text-decoration: none; }
 
-.hidden {
-  display: none; }
-
 .gif-title-ctn {
   display: none; }
 
 .gif-btn-ctn {
   display: none; }
+
+button {
+  cursor: pointer; }
 
 header {
   border-top: #572EE5 solid 0.3rem;
@@ -30,7 +30,8 @@ header {
   z-index: 2; }
   header img {
     font-family: "Roboto", "sans-serif";
-    font-weight: 500; }
+    font-weight: 500;
+    cursor: pointer; }
   header input[type="checkbox"] {
     display: none; }
     header input[type="checkbox"]:checked ~ nav {
@@ -70,7 +71,8 @@ header {
     display: flex; }
     header label img {
       align-content: center;
-      font-family: "Montserrat", "sans-serif"; }
+      font-family: "Montserrat", "sans-serif";
+      cursor: pointer; }
     header label .close-btn {
       display: none; }
   header nav {
@@ -133,7 +135,8 @@ main {
           main .intro .search-bar .search-ctn input:focus, main .trending .search-bar .search-ctn input:focus {
             border: none; }
         main .intro .search-bar .search-ctn img, main .trending .search-bar .search-ctn img {
-          width: 1.25rem; }
+          width: 1.25rem;
+          cursor: pointer; }
       main .intro .search-bar #suggestion-ctn, main .trending .search-bar #suggestion-ctn {
         margin-top: 1rem;
         border-top: 1px #9CAFC3 solid;
@@ -244,7 +247,8 @@ main {
         flex-flow: row wrap;
         position: relative;
         margin-top: 1rem;
-        margin: 0.5rem 0.5rem; }
+        margin: 0.5rem 0.5rem;
+        background-color: lightgray; }
         main .search-results .search-container .gif-card .gif-ctn {
           width: 9.75rem;
           height: 7.5rem; }
@@ -263,6 +267,8 @@ main {
       border-radius: 25px;
       margin: 4.9rem 0;
       letter-spacing: 0; }
+  main .hidden {
+    display: none; }
 
 footer {
   display: flex;
