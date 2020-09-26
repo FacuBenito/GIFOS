@@ -116,8 +116,8 @@ function addGIFToDOM(gif, container){
     trueGif.src = gif.images.fixed_height.url; 
     trueGif.classList.add("gif")
 
-    let gifTitle = gifClone.children[0].children[0];
-    let gifAuthor = gifClone.children[0].children[1];
+    let gifTitle = gifClone.children[0].children[1];
+    let gifAuthor = gifClone.children[0].children[0];
 
     let gifInfo = gif.title.split("GIF by");
     console.log(gifInfo)
