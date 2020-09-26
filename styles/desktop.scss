@@ -1,0 +1,395 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+@media screen and (min-width: 1024px){
+    a{
+        color: $main-violet;
+        font-weight: bold;
+    }
+
+    header{
+        justify-content: space-between;
+        padding-left: 10%;
+        padding-right: 10%;
+
+        nav{
+
+            display: flex;
+            flex-flow: row wrap;
+            background-color: white;
+            color: $main-violet;
+            position: relative;
+
+            ul{
+                display: flex;
+                flex-flow: row wrap;
+                width: 100%;
+                align-content: center;
+                justify-content: space-around;
+                padding: 0;
+
+                li{
+                    color: $main-violet;
+                    align-self: center;
+                    margin: 0 3rem;
+
+                    &:last-child{
+                        padding: 1rem;
+                        margin: 0;
+                        width: auto;
+                        border-radius: 50%;
+                        border: 1px solid $main-violet;
+                        align-self: center;
+                        height: 50px;
+                    }
+                }
+            }
+        }
+
+        label{
+            display: none;
+        }
+    }
+
+    main{
+        
+        .intro{
+            margin-bottom: 5rem;
+
+            h1{
+                font-size: 2.2rem;
+                font-weight: bold;
+                width: 40%;
+                max-width: 37.5rem;
+                line-height: 50px;
+
+            }
+
+            img{
+                width: 27.5%;
+            }
+
+            .search-bar{
+                width: 38.2%;
+                align-self: center;
+
+                input{
+                    width: 85%;
+                }
+            }
+
+            .trend-title-container{
+                
+                margin-top: 4rem;
+
+                h2{
+                    font-size: 1.125rem;
+                }
+
+                p{
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .trending{
+
+            &::-webkit-scrollbar{
+                display: none;
+            }
+
+            .trends-container{
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+
+                h2{
+                    font-size: 1.5rem;
+                }
+                p{
+                    font-size: 1.2rem;
+                    br{
+                        display: none;
+                    }
+                }
+
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+
+                .desktop-carrousel{
+                    display: flex;
+                    flex-flow: row wrap;
+
+                    .btn-container{
+
+                        display: flex;
+                        flex-flow: row wrap;
+                        align-self: center;
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border: solid 1px $main-violet;
+                        align-content: center;
+                        justify-content: center;
+                        margin-top: 3.3125rem;
+                        
+                        .btn{
+                            display: flex;
+                            width: 1rem;
+                            height: 2rem;
+                        }
+    
+                        .left{
+                            justify-self: flex-start;
+                        }
+    
+                        .right{
+                            justify-self: flex-end;
+                        }
+
+                    }
+
+                    .carrousel-container{
+                        display: flex;
+                        flex-flow: row nowrap;
+    
+                        &::-webkit-scrollbar{
+                            display: none;
+                        }
+    
+                        .carrousel{
+                            
+                            width: max-content;
+                            margin-top: 3.3125rem;
+                            width: 90%;
+                            display: flex;
+                            flex-flow: row nowrap;
+        
+                            .trend-gif-container{
+        
+                                display: flex;
+                                flex-flow: row wrap;
+                                width: 30%;                        
+            
+                                img{
+                                    width: 100%;
+                                }
+                            }
+
+                            .gif-card{
+                                display: flex;
+                                flex-flow: row wrap;
+                                position: relative;
+                                margin: 2rem 1.3rem 1rem 1.3rem;
+                            
+                                .gif-ctn{
+                                    height: 10rem;
+                                    width: auto;
+                            
+                                    .gif{
+                                        height: 100%;
+                                        width: auto;
+                                    }
+                                }
+                            
+                                .filter{
+                                    display: none;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: $main-violet;
+                                    opacity: 0.6;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                }
+                            
+                                .gif-btn-ctn{
+                                    display: none;
+                                }
+        
+                                .gif-title-ctn{
+                                    display: none;
+                                }
+                            
+                                &:hover{
+                            
+                                    .filter{
+                                        display: initial;
+                            
+                                    }
+                            
+                                    .gif-btn-ctn{
+                                        display: flex;
+                                        flex-flow: row wrap;
+                                        width: max-content;
+                                        opacity: 0.8;
+                                        justify-self: flex-end;
+                                        align-self: flex-start;
+                                        position: absolute;
+                                        top: 0;
+                                        right: 0;
+                                        z-index: 10;
+                                        img{
+                                            width: 2rem;
+                                            margin: 0.2rem;
+                                        }
+                            
+                                    }
+        
+                                    .gif-title-ctn{
+                                        display: flex;
+                                        flex-flow: column wrap;
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        
+                                        .gif-title{
+                                            color: white;
+                                        }
+        
+                                        .gif-author{
+                                            font-size: 1rem;
+                                            color: white;
+                                            width: 100%;
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                            }
+                        }           
+    
+                    }
+                }
+
+                
+                   
+
+            }
+        }
+
+        .search-results{
+
+            .gif-card{
+                display: flex;
+                flex-flow: row wrap;
+                position: relative;
+                margin: 2rem 1.3rem 1rem 1.3rem;
+            
+                .gif-ctn{
+                    height: 10rem;
+                    width: auto;
+            
+                    .gif{
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+            
+                .filter{
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    background-color: $main-violet;
+                    opacity: 0.6;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            
+                .gif-btn-ctn{
+                    display: none;
+                }
+
+                .gif-title-ctn{
+                    display: none;
+                }
+            
+                &:hover{
+            
+                    .filter{
+                        display: initial;
+            
+                    }
+            
+                    .gif-btn-ctn{
+                        display: flex;
+                        flex-flow: row wrap;
+                        width: max-content;
+                        opacity: 0.8;
+                        justify-self: flex-end;
+                        align-self: flex-start;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        z-index: 10;
+                        img{
+                            width: 2rem;
+                            margin: 0.2rem;
+                        }
+            
+                    }
+
+                    .gif-title-ctn{
+                        display: flex;
+                        flex-flow: column wrap;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        
+                        .gif-title{
+                            color: white;
+                            font-family: $text-font;
+                        }
+
+                        .gif-author{
+                            font-size: 1rem;
+                            color: white;
+                            width: 100%;
+                            opacity: 1;
+                            font-family: $text-font;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    footer{
+
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3.125rem 9.75rem;
+
+        h3{
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .share{
+            flex-flow: row wrap;
+            align-items: center;
+            width: 50%;
+
+            h3{
+                margin: 0;
+                font-size: 1rem;
+            }    
+
+            div{
+                justify-content: space-between;
+                margin: 0 1rem;
+                width: 20%;
+            }
+        }
+
+    }
+
+}

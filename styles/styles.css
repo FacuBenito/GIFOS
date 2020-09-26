@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: white;
+  text-decoration: none; }
+
+.hidden {
+  display: none; }
+
+.gif-title-ctn {
+  display: none; }
+
+.gif-btn-ctn {
+  display: none; }
+
+header {
+  border-top: #572EE5 solid 0.3rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+  padding: 1.8rem 1rem;
+  background-color: #FFFFFF;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2; }
+  header img {
+    font-family: "Roboto", "sans-serif";
+    font-weight: 500; }
+  header input[type="checkbox"] {
+    display: none; }
+    header input[type="checkbox"]:checked ~ nav {
+      display: flex;
+      flex-flow: column wrap;
+      background-color: rgba(87, 46, 229, 0.9);
+      color: white;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 11%;
+      left: 0rem;
+      padding: 10% 0 50% 0;
+      z-index: 2; }
+      header input[type="checkbox"]:checked ~ nav ul {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center; }
+        header input[type="checkbox"]:checked ~ nav ul li {
+          padding: .5rem;
+          text-align: center; }
+          header input[type="checkbox"]:checked ~ nav ul li:after {
+            content: "";
+            display: block;
+            margin: 0 auto;
+            width: 25%;
+            border-bottom: solid 1px white;
+            margin-top: 1rem;
+            opacity: 50%; }
+          header input[type="checkbox"]:checked ~ nav ul li:last-child {
+            display: none; }
+    header input[type="checkbox"]:checked ~ label .menu-btn {
+      display: none; }
+    header input[type="checkbox"]:checked ~ label .close-btn {
+      display: flex; }
+  header label {
+    display: flex; }
+    header label img {
+      align-content: center;
+      font-family: "Montserrat", "sans-serif"; }
+    header label .close-btn {
+      display: none; }
+  header nav {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 1rem;
+    font-weight: 500;
+    display: none; }
+    header nav ul {
+      list-style-type: none; }
+
+main {
+  background-color: #FFFFFF;
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center; }
+  main .intro, main .trending {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center; }
+    main .intro h1, main .trending h1 {
+      align-self: center;
+      width: 76.6%;
+      font-family: "Montserrat", "sans-serif";
+      color: #572EE5;
+      font-size: 1.56rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 2rem;
+      margin: .45rem 0 2rem 0; }
+      main .intro h1 br, main .trending h1 br {
+        display: none; }
+      main .intro h1 span, main .trending h1 span {
+        color: #50E3C2; }
+    main .intro img, main .trending img {
+      width: 72.8%;
+      align-self: center; }
+    main .intro .search-bar, main .trending .search-bar {
+      width: 90%;
+      border: 1px solid #572EE5;
+      padding: 1rem 1.25rem 1rem 3.5rem;
+      font-family: "Roboto", "sans-serif";
+      border-radius: 250px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      margin-bottom: 2rem; }
+      main .intro .search-bar .search-ctn, main .trending .search-bar .search-ctn {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 100%; }
+        main .intro .search-bar .search-ctn .search-cross, main .trending .search-bar .search-ctn .search-cross {
+          display: none; }
+        main .intro .search-bar .search-ctn input, main .trending .search-bar .search-ctn input {
+          border: none;
+          font-size: 1rem;
+          width: 85%; }
+          main .intro .search-bar .search-ctn input:focus, main .trending .search-bar .search-ctn input:focus {
+            border: none; }
+        main .intro .search-bar .search-ctn img, main .trending .search-bar .search-ctn img {
+          width: 1.25rem; }
+      main .intro .search-bar #suggestion-ctn, main .trending .search-bar #suggestion-ctn {
+        margin-top: 1rem;
+        border-top: 1px #9CAFC3 solid;
+        padding-top: 1.2rem;
+        width: 100%; }
+        main .intro .search-bar #suggestion-ctn .suggestion, main .trending .search-bar #suggestion-ctn .suggestion {
+          font-family: "Roboto", "sans-serif";
+          font-size: 1rem;
+          margin: 0.625rem 0rem;
+          color: #9CAFC3;
+          width: 100%;
+          display: flex;
+          flex-flow: row wrap; }
+          main .intro .search-bar #suggestion-ctn .suggestion::before, main .trending .search-bar #suggestion-ctn .suggestion::before {
+            display: flex;
+            background-image: url("assets/icon-search.svg"); }
+    main .intro .trend-title-container, main .trending .trend-title-container {
+      font-family: "Montserrat", "sans-serif";
+      color: #572EE5;
+      margin-bottom: 2.81rem; }
+      main .intro .trend-title-container h2, main .trending .trend-title-container h2 {
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 700; }
+      main .intro .trend-title-container p, main .trending .trend-title-container p {
+        padding: 0.32rem;
+        text-align: center;
+        font-size: 0.85rem;
+        width: 60vw;
+        line-height: 1.56rem;
+        font-weight: 500;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: capitalize; }
+  main .trending {
+    font-family: "Montserrat", "sans-serif";
+    color: #572EE5;
+    overflow: scroll; }
+    main .trending .trends-container {
+      overflow: scroll;
+      width: 100%;
+      background-color: #F3F5F8;
+      padding: 2.875rem 0 4.125rem 0; }
+      main .trending .trends-container h2 {
+        text-align: center;
+        font-size: 1.25rem;
+        line-height: 1.9rem;
+        font-weight: 700; }
+      main .trending .trends-container p {
+        padding: 1rem;
+        color: black;
+        font-family: "Roboto", "sans-serif";
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.44rem; }
+      main .trending .trends-container .trend-gif-card {
+        margin: 2rem 1.3rem 1rem 1.3rem; }
+      main .trending .trends-container .btn-container {
+        display: none; }
+        main .trending .trends-container .btn-container .btn {
+          display: none; }
+      main .trending .trends-container .carrousel-container {
+        overflow: scroll;
+        scrollbar-width: 0; }
+        main .trending .trends-container .carrousel-container::-webkit-scrollbar {
+          display: none; }
+        main .trending .trends-container .carrousel-container .carrousel {
+          width: max-content;
+          display: flex;
+          flex-flow: row nowrap; }
+          main .trending .trends-container .carrousel-container .carrousel .gif-card {
+            display: flex;
+            flex-flow: row wrap;
+            position: relative;
+            margin: 2rem 1.3rem 1rem 1.3rem; }
+            main .trending .trends-container .carrousel-container .carrousel .gif-card .gif-ctn {
+              height: 10rem;
+              width: auto; }
+              main .trending .trends-container .carrousel-container .carrousel .gif-card .gif-ctn .gif {
+                height: 100%;
+                width: auto; }
+  main .search-results {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 100%; }
+    main .search-results h2 {
+      font-size: 2.18rem;
+      font-family: "Montserrat", "sans-serif";
+      color: #572EE5; }
+    main .search-results .search-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center; }
+      main .search-results .search-container .gif-card {
+        display: flex;
+        flex-flow: row wrap;
+        position: relative;
+        margin-top: 1rem; }
+        main .search-results .search-container .gif-card .gif-ctn {
+          width: 9.75rem;
+          height: 7.5rem;
+          margin: 0 0.5rem; }
+          main .search-results .search-container .gif-card .gif-ctn .gif {
+            height: 100%;
+            width: 100%; }
+
+footer {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  padding: .5rem 0 1rem 0;
+  border-bottom: #572EE5 solid 0.3rem; }
+  footer .share {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center; }
+    footer .share h3 {
+      font-size: 1rem;
+      font-family: "Roboto", "sans-serif";
+      font-weight: 400; }
+    footer .share div {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      margin-top: 2rem; }
+  footer h3 {
+    margin-top: 3rem;
+    font-family: "Roboto", "sans-serif";
+    font-weight: 400;
+    font-size: .9rem; }
+
+/*# sourceMappingURL=styles.css.map */
