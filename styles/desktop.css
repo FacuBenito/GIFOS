@@ -172,6 +172,7 @@
               display: none; }
   main .search-results .search-container {
     width: 90%;
+    max-width: 1200px;
     margin: 1rem; }
     main .search-results .search-container .gif-card {
       display: flex;
