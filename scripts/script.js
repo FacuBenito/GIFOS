@@ -3,8 +3,8 @@ let seeMoreClicks = 1;
 
 async function searchGIF(search){
 
-    let limit = seeMoreClicks*12;
-    let offset = limit - 12;
+    let limit = 12;
+    let offset = seeMoreClicks*limit - 12;
 
     let resp = await fetch(`https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${apiKey}&limit=${limit}&offset=${offset}`)
     let data = await resp.json();
@@ -12,7 +12,10 @@ async function searchGIF(search){
     let gifArr = data.data;
 
     let searchResultsCtn = document.getElementById("search-results-ctn");
-    searchResultsCtn.textContent = ""
+
+    if (seeMoreClicks === 1){
+        searchResultsCtn.textContent = ""
+    }
 
     let searchTitle = document.getElementById("search-title");
     searchTitle.textContent = search;
@@ -28,8 +31,6 @@ async function trendingGIF(){
     let resp = await fetch(`https://api.giphy.com/v1/gifs/trending?&api_key=${apiKey}&limit=3`);
     let info = await resp.json();
     let carrousel = document.getElementById("carrousel");
-
-    console.log(info.data)
 
     for (let i = 0; i < info.data.length; i++){
         // addGIFToTrending(info.data[i]);
@@ -66,17 +67,29 @@ async function autocomplete(){
     }
 }
 
+let favGifs = JSON.parse(localStorage.getItem("favGIFs"));
+
+if (favGifs === null){
+    favGifs = [];
+}
+
 let searchCtn = document.getElementById("search-ctn");
 let cross = document.getElementById("cross");
 let glass = document.getElementById("search-icon");
 let searchBar = document.getElementById("search-bar");
 let search = document.getElementById("search-input");
+let seeMore = document.getElementById("see-more");
 
 searchBar.addEventListener("focusin", searchSwitch);
 searchBar.addEventListener("focusout", deSwitch);
 search.addEventListener("keyup", autocomplete);
 cross.addEventListener("mousedown", () => search.value = "");
 glass.addEventListener("mousedown", runSearch);
+
+seeMore.addEventListener("click", () => {
+    seeMoreClicks = seeMoreClicks + 1;
+    searchGIF(search.value);
+});
 
 let gifCardTemplate = document.getElementById("gif-card-template").content.firstElementChild;
 
@@ -120,7 +133,8 @@ function addGIFToDOM(gif, container){
     let gifAuthor = gifClone.children[0].children[0];
 
     let gifInfo = gif.title.split("GIF by");
-    console.log(gifInfo)
+
+
 
     if (gifInfo.length === 1){
         gifAuthor.textContent = "Anonymous";
@@ -129,6 +143,21 @@ function addGIFToDOM(gif, container){
         gifAuthor.textContent = gifInfo[1];
         gifTitle.textContent = gifInfo[0];
     }
+
+    trueGif.id = gif.id;
+
+    let favBtn = gifClone.children[2].children[0];
+    let downloadBtn = gifClone.children[2].children[1];
+    let expandBtn = gifClone.children[2].children[2];
+
+    let onFavs = favGifs.find(giphy => giphy === gif.id)
+
+    if (onFavs !== undefined){
+        favBtn.src = "assets/icon-fav-active.svg"
+        favBtn.classList.add("fav-btn-active")
+    }
+
+    favBtn.addEventListener("click", addToFavs);
 
     container.appendChild(gifClone);
 
@@ -230,13 +259,9 @@ function deCompleteInDOM(){
 }
 
 function runSearch(){
-
-    let trendTitle = document.getElementById("trend-title-container");
+    
     let results = document.getElementById("search-results");
 
-    console.log(results)
-
-    trendTitle.classList.add("hidden");
     results.classList.remove("hidden");
     results.classList.add("search-results");
 
@@ -253,10 +278,28 @@ function addGIFToSearch(element){
     let searchResultsCtn = document.getElementById("search-results-ctn");
 
     gif.src = element.images.fixed_height.url;
-    // gif.style.width = "9.75rem";
-    // gif.style.height = "7.5rem";
 
     gifCtn.appendChild(gif);
     searchResultsCtn.appendChild(gifCtn)
+}
+
+function addToFavs(){
+
+    let gif = document.getElementById(this.parentNode.parentNode.children[1].children[0].id);
+
+    let found = favGifs.findIndex(giphy => giphy === gif.id)
+
+    if (found === -1){
+        favGifs.push(gif.id);
+        this.src = "assets/icon-fav-active.svg";
+        this.classList.add("fav-btn-active");
+    }else{
+        this.src = "assets/icon-fav-hover.svg";
+        this.classList.remove("fav-btn-active");
+        favGifs.splice(found, 1);
+    }
+
+    let favsAsString = JSON.stringify(favGifs);
+    localStorage.setItem("favGIFs", favsAsString);
 
 }

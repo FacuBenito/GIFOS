@@ -335,10 +335,20 @@ main{
         align-items: center;
         width: 100%;
 
+        &::before{
+            content: "";
+            display: block;
+            margin: -1rem auto 0 auto;
+            width: 25%;
+            border-bottom: solid 1px lightgrey;
+            opacity: 100%;
+        }
+
         h2{
             font-size: 2.18rem;
             font-family: $title-font;
             color: $main-violet;
+            margin: 3rem 0;
         }
 
         .search-container{
@@ -367,6 +377,20 @@ main{
 
 
             }   
+        }
+
+        button{
+            width: 7.9rem;
+            height: 3.125rem;
+            color: $main-violet;
+            border: 1px solid $main-violet;
+            font-size: .7rem;
+            font-weight: bold;
+            font-family: $title-font;
+            background-color: white;
+            border-radius: 25px;
+            margin: 4.9rem 0;
+            letter-spacing: 0;
         }
     }
 }

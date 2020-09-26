@@ -55,6 +55,14 @@
         }
     }
 
+    .fav-btn-active{
+        background-color: white;
+        width: 2rem;
+        height: 2rem;
+        padding: 7px;
+        border-radius: 6px;
+    }
+
     a{
         color: $main-violet;
         font-weight: bold;
@@ -288,6 +296,10 @@
                 width: 90%;
                 max-width: 1200px;
                 margin: 1rem;
+
+                &::before{
+                    margin-top: -3rem;
+                }
 
                 .gif-card{
                     display: flex;

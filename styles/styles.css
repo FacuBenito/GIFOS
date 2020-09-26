@@ -223,10 +223,18 @@ main {
     flex-flow: column wrap;
     align-items: center;
     width: 100%; }
+    main .search-results::before {
+      content: "";
+      display: block;
+      margin: -1rem auto 0 auto;
+      width: 25%;
+      border-bottom: solid 1px lightgrey;
+      opacity: 100%; }
     main .search-results h2 {
       font-size: 2.18rem;
       font-family: "Montserrat", "sans-serif";
-      color: #572EE5; }
+      color: #572EE5;
+      margin: 3rem 0; }
     main .search-results .search-container {
       display: flex;
       flex-flow: row wrap;
@@ -243,6 +251,18 @@ main {
           main .search-results .search-container .gif-card .gif-ctn .gif {
             height: 100%;
             width: 100%; }
+    main .search-results button {
+      width: 7.9rem;
+      height: 3.125rem;
+      color: #572EE5;
+      border: 1px solid #572EE5;
+      font-size: .7rem;
+      font-weight: bold;
+      font-family: "Montserrat", "sans-serif";
+      background-color: white;
+      border-radius: 25px;
+      margin: 4.9rem 0;
+      letter-spacing: 0; }
 
 footer {
   display: flex;
