@@ -145,12 +145,16 @@ main {
         main .intro .search-bar #suggestion-ctn .suggestion, main .trending .search-bar #suggestion-ctn .suggestion {
           font-family: "Roboto", "sans-serif";
           font-size: 1rem;
-          margin: 0.625rem 0rem;
           color: #9CAFC3;
           width: 100%;
+          height: 2.625rem;
           display: flex;
-          flex-flow: row wrap; }
-          main .intro .search-bar #suggestion-ctn .suggestion::before, main .trending .search-bar #suggestion-ctn .suggestion::before {
+          flex-flow: row wrap;
+          align-items: center;
+          cursor: pointer; }
+          main .intro .search-bar #suggestion-ctn .suggestion:hover, main .trending .search-bar #suggestion-ctn .suggestion:hover {
+            background-color: rgba(211, 211, 211, 0.3); }
+          main .intro .search-bar #suggestion-ctn .suggestion .sug-name::before, main .trending .search-bar #suggestion-ctn .suggestion .sug-name::before {
             display: flex;
             background-image: url("assets/icon-search.svg"); }
     main .intro .trend-title-container, main .trending .trend-title-container {

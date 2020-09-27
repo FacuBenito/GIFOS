@@ -21,7 +21,6 @@ async function searchGIF(search){
     searchTitle.textContent = search;
     searchTitle.style.textTransform = "capitalize";
 
-
     for (let i = 0; i < limit; i++){
         addGIFToDOM(gifArr[i], searchResultsCtn);
     }
@@ -93,9 +92,9 @@ let results = document.getElementById("search-results");
 let intro = document.getElementById("intro");
 let home = document.getElementById("home");
 let trendingTitle = document.getElementById("trend-title-container");
-let trending = document.getElementById("trending")
-let menu = document.getElementById("menu")
-let hiddenSections = document.querySelectorAll("section.could-hide")
+let trending = document.getElementById("trending");
+let menu = document.getElementById("menu");
+let hiddenSections = document.querySelectorAll("section.could-hide");
 
 searchBar.addEventListener("focusin", searchSwitch);
 searchBar.addEventListener("focusout", deSwitch);
@@ -163,7 +162,7 @@ function addGIFToDOM(gif, container){
     let trueGif = gifCtn.children[0];
 
     trueGif.src = gif.images.fixed_height.url; 
-    trueGif.classList.add("gif")
+    trueGif.classList.add("gif");
 
     let gifTitle = gifClone.children[0].children[1];
     let gifAuthor = gifClone.children[0].children[0];
@@ -243,6 +242,9 @@ function deSwitch(){
 
 function autocompleteInDOM(complete, sugCtn){
 
+    searchBar.paddingLeft = "0"
+    searchCtn.marginLeft = "1.5rem";
+
     //Creo el contenedor, la imagen y el p para las sugerencias
     let suggestion = document.createElement("div");
     let name = document.createElement("p");
@@ -259,6 +261,7 @@ function autocompleteInDOM(complete, sugCtn){
     //Le pongo el valor del autocompletado a la sugerencia
     name.textContent = complete
     name.style.cursor = "pointer"
+    name.className = "sug-name"
     
     suggestion.appendChild(img);
     suggestion.appendChild(name);
@@ -297,7 +300,11 @@ function runSearch(){
 
     seeMoreClicks = 1;
 
-    searchGIF(search.value);
+    if (search.value === ""){
+        alert("No se ingresaron parámetros de búsqueda")
+    }else{
+        searchGIF(search.value);
+    }
 }
 
 function addGIFToSearch(element){
