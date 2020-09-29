@@ -15,3 +15,26 @@ $autocomplete: #9CAFC3;
 
 $bg-dark: #37383C;
 
+html[data-theme="light"]{
+    --background: #FFF;
+    --trending_background: #F3F5F8;
+    --main_text_color: #572EE5;
+    --small_text_color: #000;
+    --drawer_background: #572EE5;
+    --body_border: #572EE5;
+    --fancy_border: #572EE5;
+    --btn_color: #572EE5;
+    --btn_hover: white;
+}
+
+html[data-theme="dark"]{
+    --background: #37383C;
+    --trending_background: #222326;
+    --main_text_color: #FFF;
+    --small_text_color: #FFF;
+    --drawer_background: #000;
+    --body_border: #000;
+    --fancy_border: #FFF;
+    --btn_color: #000000;
+    --btn_hover: black;
+}

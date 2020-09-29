@@ -12,17 +12,41 @@ async function searchGIF(search){
     let gifArr = data.data;
 
     let searchResultsCtn = document.getElementById("search-results-ctn");
-
-    if (seeMoreClicks === 1){
-        searchResultsCtn.textContent = ""
-    }
-
     let searchTitle = document.getElementById("search-title");
-    searchTitle.textContent = search;
-    searchTitle.style.textTransform = "capitalize";
 
-    for (let i = 0; i < limit; i++){
-        addGIFToDOM(gifArr[i], searchResultsCtn);
+    console.log(data.data)
+
+    if (data.data.length > 0){
+
+        if (seeMoreClicks === 1){
+            searchResultsCtn.textContent = ""
+        }
+    
+        searchTitle.textContent = search;
+        searchTitle.style.textTransform = "capitalize";
+
+        seeMore.classList.remove("hidden")
+    
+        for (let i = 0; i < limit; i++){
+            addGIFToDOM(gifArr[i], searchResultsCtn);
+        }
+
+    }else{
+        searchResultsCtn.textContent = ""
+
+        seeMore.classList.add("hidden")
+        let img = document.createElement("img")
+        let message = document.createElement("p")
+        
+        img.src = "assets/icon-busqueda-sin-resultado.svg"
+
+        message.textContent = "Intentá con otra búsqueda"
+        message.classList.add("message")
+
+        searchTitle.textContent = "Sad times :("
+        searchResultsCtn.appendChild(img);
+        searchResultsCtn.appendChild(message)
+        //Show no results message
     }
 }
 

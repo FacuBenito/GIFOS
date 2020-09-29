@@ -1,4 +1,30 @@
+html[data-theme="light"] {
+  --background: #FFF;
+  --trending_background: #F3F5F8;
+  --main_text_color: #572EE5;
+  --small_text_color: #000;
+  --drawer_background: #572EE5;
+  --body_border: #572EE5;
+  --fancy_border: #572EE5;
+  --btn_color: #572EE5;
+  --btn_hover: white; }
+
+html[data-theme="dark"] {
+  --background: #37383C;
+  --trending_background: #222326;
+  --main_text_color: #FFF;
+  --small_text_color: #FFF;
+  --drawer_background: #000;
+  --body_border: #000;
+  --fancy_border: #FFF;
+  --btn_color: #000000;
+  --btn_hover: black; }
+
 @media screen and (min-width: 1024px) {
+  header nav ul li:last-child:hover, main .trending .trends-container .desktop-carrousel .btn-container:hover, main .search-results button:hover {
+    color: var(--btn_hover);
+    background-color: var(--main_text_color); }
+
   main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .filter, main .search-results .search-container .gif-card:hover .filter {
     display: initial; }
   main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-btn-ctn, main .search-results .search-container .gif-card:hover .gif-btn-ctn {
@@ -43,7 +69,7 @@
     border-radius: 6px; }
 
   a {
-    color: #572EE5;
+    color: var(--main_text_color);
     font-weight: bold; }
 
   header {
@@ -53,9 +79,11 @@
     header nav {
       display: flex;
       flex-flow: row wrap;
-      background-color: white;
+      background-color: var(--background);
       color: #572EE5;
-      position: relative; }
+      position: relative;
+      font-weight: bold;
+      cursor: pointer; }
       header nav ul {
         display: flex;
         flex-flow: row wrap;
@@ -64,17 +92,21 @@
         justify-content: space-around;
         padding: 0; }
         header nav ul li {
-          color: #572EE5;
+          color: var(--main_text_color);
           align-self: center;
           margin: 0 3rem; }
           header nav ul li:last-child {
-            padding: 1rem;
+            padding: 0 1rem;
             margin: 0;
             width: auto;
             border-radius: 50%;
-            border: 1px solid #572EE5;
+            border: 1px solid var(--main_text_color);
+            color: var(--main_text_color);
             align-self: center;
-            height: 50px; }
+            justify-self: center;
+            height: 48px;
+            line-height: 48px;
+            background-color: transparent; }
     header label {
       display: none; }
 
@@ -124,7 +156,7 @@
         align-self: center;
         width: 2.5rem;
         height: 2.5rem;
-        border: solid 1px #572EE5;
+        border: solid 1px var(--main_text_color);
         align-content: center;
         justify-content: center;
         margin-top: 3.3125rem; }

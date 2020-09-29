@@ -1,9 +1,11 @@
 @import "variables.scss";
 @import "mixins.scss";
 
-
-
 @media screen and (min-width: 1024px){
+    %hover-btn{
+        color: var(--btn_hover);
+        background-color: var(--main_text_color);
+    }    
 
     %hover{
         .filter{
@@ -64,9 +66,11 @@
     }
 
     a{
-        color: $main-violet;
+        color: var(--main_text_color);
         font-weight: bold;
     }
+
+
 
     header{
         justify-content: space-between;
@@ -77,9 +81,11 @@
 
             display: flex;
             flex-flow: row wrap;
-            background-color: white;
+            background-color: var(--background);
             color: $main-violet;
             position: relative;
+            font-weight: bold;
+            cursor: pointer;
 
             ul{
                 display: flex;
@@ -90,18 +96,27 @@
                 padding: 0;
 
                 li{
-                    color: $main-violet;
+                    color: var(--main_text_color);
                     align-self: center;
                     margin: 0 3rem;
 
                     &:last-child{
-                        padding: 1rem;
+                        padding: 0 1rem;
                         margin: 0;
                         width: auto;
                         border-radius: 50%;
-                        border: 1px solid $main-violet;
+                        border: 1px solid var(--main_text_color);
+                        color: var(--main_text_color);
                         align-self: center;
-                        height: 50px;
+                        justify-self: center;
+                        height: 48px;
+                        line-height: 48px;
+                        background-color: transparent;
+
+                        &:hover{
+                            @extend %hover-btn;
+
+                        }
                     }
                 }
             }
@@ -194,7 +209,7 @@
                         align-self: center;
                         width: 2.5rem;
                         height: 2.5rem;
-                        border: solid 1px $main-violet;
+                        border: solid 1px var(--main_text_color);
                         align-content: center;
                         justify-content: center;
                         margin-top: 3.3125rem;
@@ -203,6 +218,7 @@
                             display: flex;
                             width: 1rem;
                             height: 2rem;
+
                         }
     
                         .left{
@@ -211,6 +227,11 @@
     
                         .right{
                             justify-self: flex-end;
+                            
+                        }
+
+                        &:hover{
+                            @extend %hover-btn;
                         }
 
                     }
@@ -341,6 +362,16 @@
                         
                         @extend %hover;
                     }
+
+                    
+                }
+
+                
+            }
+
+            button{
+                &:hover{
+                    @extend %hover-btn;
                 }
             }
             
