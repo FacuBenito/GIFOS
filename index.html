@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/desktop.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&display=swap" rel="stylesheet">
     <title>GIFs 4 All</title>
-
+    <script src="https://kit.fontawesome.com/ccc8f7a871.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -25,7 +25,7 @@
                 <li id="dark-mode-btn"><a href="#">Modo Nocturno</a></li>
                 <li id="favorites-btn"><a href="#">Favoritos</a></li>
                 <li id="my-gifos-btn"><a href="#">Mis GIFOS</a></li>
-                <li id="create-gif-btn"><img src="assets/button-crear-gifo.svg" alt="boton-crear" id="create-gif"></li>
+                <li id="create-gif-btn"><i class="fas fa-plus" id="create-gif"></i></li>
             </ul>
         </nav>
     </header>
@@ -136,6 +136,8 @@
         <h3>&copy; GIFOS 2020 All Rights Reserved.</h3>
 
     </footer>
+
+    <script src="scripts/darkmode.js"></script>
     <script src="scripts/script.js"></script>
 </body>
 </html>
