@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -140,4 +141,148 @@
     <script src="scripts/darkmode.js"></script>
     <script src="scripts/script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/desktop.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&display=swap" rel="stylesheet">
+    <title>GIFs 4 All</title>
+    <script src="https://kit.fontawesome.com/ccc8f7a871.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <img src="assets/logo-mobile.svg" alt="logo-mobile-lite" id="home">
+
+        <input type="checkbox" id="menu">
+
+        <label for="menu">
+            <img src="assets/burger.svg" alt="menu-btn" class="menu-btn">
+            <img src="assets/button-close.svg" alt="close-btn" class="close-btn">
+        </label>
+
+        <nav>
+            <ul>
+                <li id="dark-mode-btn"><a href="#">Modo Nocturno</a></li>
+                <li id="favorites-btn"><a href="#">Favoritos</a></li>
+                <li id="my-gifos-btn"><a href="#">Mis GIFOS</a></li>
+                <li id="create-gif-btn"><i class="fas fa-plus" id="create-gif"></i></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro could-hide" id="intro">
+            <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
+            <img src="assets/ilustra_header.svg" alt="search-bar-pic">
+
+            <div class="search-bar" id="search-bar">
+                <div class="search-ctn" id ="search-ctn">
+                    <img src="assets/button-close.svg" alt="close-btn-search" id="cross" class="search-cross">
+
+                    <input type="text" class="search" id="search-input" placeholder="Busca GIFOS y más">
+
+                    <label for="search"> <!-- en realidad esto es un label para el botón de buscar -->
+                        <img src="assets/icon-search.svg" alt="search-icon" id="search-icon">
+                    </label>
+                </div>
+                <div id="suggestion-ctn" class="hidden"></div>
+            </div>
+
+            <div class="trend-title-container" id="trend-title-container">
+                <h2>Trending:</h2>
+                <p id="trending-words"></p>
+            </div>
+        </section>
+
+        <section id="search-results" class="hidden could-hide">
+            <h2 id="search-title"></h2>
+            <div class="search-container" id="search-results-ctn">
+
+                <template id="gif-card-template">
+                    <article id="gif-card" class="gif-card">
+
+                        <div id="gif-title-ctn" class="gif-title-ctn">
+                            <h4 id="gif-author" class="gif-author"></h4>
+                            <h3 id="gif-title" class="gif-title"></h3>
+                        </div>
+
+                        <div id="gif-ctn">
+                            <img src="" alt="" class="gif">
+                        </div>
+
+                        <div id="gif-btn-ctn" class="gif-btn-ctn">
+                            <img src="assets/icon-fav-hover.svg" id="fav" class="fav">
+                            <img src="assets/icon-download-hover.svg" id="download" class="download">
+                            <img src="assets/icon-max-hover.svg" id="zoom-in" class="zoom-in">
+                        </div>
+                        
+                        <div id="filter" class="filter"></div>
+                    </article>
+                </template>
+
+            </div>
+            <button id="see-more">VER MÁS</button>
+        </section>
+
+        <section id="favorites" class="hidden could-hide">
+            <img src="assets/icon-favoritos.svg" alt="">
+            <h2>Favoritos</h2>
+        </section>
+
+        <section id="create" class="hidden could-hide"></section>
+        <section id="my-gifos" class="hidden could-hide"></section>
+        <section id="expanded" class="hidden could-hide"></section>
+
+        <section class="trending" id="trending">
+            <article class="trends-container" id="trends-container">
+                <h2>Trending GIFOS</h2>
+                <p>Mira los últimos <br> GIFOS de nuestra comunidad</p>
+
+                <div class="desktop-carrousel">
+
+                    <div class="btn-container">
+                        <img src="assets/button-left.svg" alt="left-btn" class="left btn">
+                    </div>
+                    
+                    <div class="carrousel-container">
+                        <div class="carrousel" id="carrousel">
+                            <!-- <div class="trend-gif-card">
+                                <img src="assets/cat.gif" alt="cat-gid">
+                            </div> -->
+                        </div>
+                    </div>
+                                            
+                    <div class="btn-container">
+                        <img src="assets/button-right.svg" alt="right-btn" class="right btn">
+                    </div>
+                </div>
+
+            </article>
+        </section>
+    </main>
+    <footer>
+        <section class="share">
+
+            <h3>Compartir en:</h3>
+
+            <div>
+                <a href=""><img src="assets/icon_facebook.svg" alt="share-facebook"></a>
+                <a href=""><img src="assets/icon-twitter.svg" alt="share-twitter"></a>
+                <a href=""><img src="assets/icon_instagram.svg" alt="share-instagram"></a>
+            </div>
+
+        </section>
+
+        <h3>&copy; GIFOS 2020 All Rights Reserved.</h3>
+
+    </footer>
+
+    <script src="scripts/darkmode.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+>>>>>>> 0e0f99beeb9166e2dc03611c073c405ca4e12c3f
 </html>

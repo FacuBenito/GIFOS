@@ -1,263 +1,38 @@
-html[data-theme="light"] {
-  --background: #FFF;
-  --trending_background: #F3F5F8;
-  --main_text_color: #572EE5;
-  --small_text_color: #000;
-  --drawer_background: #572EE5;
-  --body_border: #572EE5;
-  --fancy_border: #572EE5;
-  --btn_color: #572EE5;
-  --btn_hover: white; }
+/*
+Error: Invalid CSS after "...variables.scss"": expected "{", was ";"
+        on line 2 of D:\Backup\Globant\Bloque 2\Proyecto 2 -GIFOS\styles\desktop.scss
 
-html[data-theme="dark"] {
-  --background: #37383C;
-  --trending_background: #222326;
-  --main_text_color: #FFF;
-  --small_text_color: #FFF;
-  --drawer_background: #000;
-  --body_border: #000;
-  --fancy_border: #FFF;
-  --btn_color: #000000;
-  --btn_hover: black; }
+1: <<<<<<< HEAD
+2: @import "variables.scss";
+3: @import "mixins.scss";
+4: 
+5: @media screen and (min-width: 1024px){
+6:     %hover-btn{
+7:         color: var(--btn_hover);
 
-@media screen and (min-width: 1024px) {
-  header nav ul li:last-child:hover, main .trending .trends-container .desktop-carrousel .btn-container:hover, main .search-results button:hover {
-    color: var(--btn_hover);
-    background-color: var(--main_text_color); }
-
-  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .filter, main .search-results .search-container .gif-card:hover .filter {
-    display: initial; }
-  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-btn-ctn, main .search-results .search-container .gif-card:hover .gif-btn-ctn {
-    display: flex;
-    flex-flow: row wrap;
-    width: max-content;
-    opacity: 0.8;
-    justify-self: flex-end;
-    align-self: flex-start;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 10; }
-    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-btn-ctn img, main .search-results .search-container .gif-card:hover .gif-btn-ctn img {
-      width: 2rem;
-      margin: 0.2rem; }
-  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn, main .search-results .search-container .gif-card:hover .gif-title-ctn {
-    display: flex;
-    flex-flow: column wrap;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-    z-index: 29; }
-    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn .gif-title, main .search-results .search-container .gif-card:hover .gif-title-ctn .gif-title {
-      color: white;
-      font-size: 1rem;
-      font-family: "Roboto", "sans-serif"; }
-    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn .gif-author, main .search-results .search-container .gif-card:hover .gif-title-ctn .gif-author {
-      font-size: .9rem;
-      color: white;
-      width: 100%;
-      opacity: .6;
-      font-family: "Roboto", "sans-serif"; }
-
-  .fav-btn-active {
-    background-color: white;
-    width: 2rem;
-    height: 2rem;
-    padding: 7px;
-    border-radius: 6px; }
-
-  a {
-    color: var(--main_text_color);
-    font-weight: bold; }
-
-  header {
-    justify-content: space-between;
-    padding-left: 10%;
-    padding-right: 10%; }
-    header nav {
-      display: flex;
-      flex-flow: row wrap;
-      background-color: var(--background);
-      color: #572EE5;
-      position: relative;
-      font-weight: bold;
-      cursor: pointer; }
-      header nav ul {
-        display: flex;
-        flex-flow: row wrap;
-        width: 100%;
-        align-content: center;
-        justify-content: space-around;
-        padding: 0; }
-        header nav ul li {
-          color: var(--main_text_color);
-          align-self: center;
-          margin: 0 3rem; }
-          header nav ul li:last-child {
-            padding: 0 1rem;
-            margin: 0;
-            width: auto;
-            border-radius: 50%;
-            border: 1px solid var(--main_text_color);
-            color: var(--main_text_color);
-            align-self: center;
-            justify-self: center;
-            height: 48px;
-            line-height: 48px;
-            background-color: transparent; }
-    header label {
-      display: none; }
-
-  main .intro {
-    margin-bottom: 5rem; }
-    main .intro h1 {
-      font-size: 2.2rem;
-      font-weight: bold;
-      width: 40%;
-      max-width: 37.5rem;
-      line-height: 50px; }
-    main .intro img {
-      width: 27.5%; }
-    main .intro .search-bar {
-      width: 38.2%;
-      align-self: center; }
-      main .intro .search-bar input {
-        width: 85%; }
-    main .intro .trend-title-container {
-      margin-top: 4rem; }
-      main .intro .trend-title-container h2 {
-        font-size: 1.125rem; }
-      main .intro .trend-title-container p {
-        font-size: 1rem; }
-  main .trending::-webkit-scrollbar {
-    display: none; }
-  main .trending .trends-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center; }
-    main .trending .trends-container::-webkit-scrollbar {
-      display: none; }
-    main .trending .trends-container h2 {
-      font-size: 1.5rem; }
-    main .trending .trends-container p {
-      font-size: 1.2rem; }
-      main .trending .trends-container p br {
-        display: none; }
-    main .trending .trends-container::-webkit-scrollbar {
-      display: none; }
-    main .trending .trends-container .desktop-carrousel {
-      display: flex;
-      flex-flow: row wrap; }
-      main .trending .trends-container .desktop-carrousel .btn-container {
-        display: flex;
-        flex-flow: row wrap;
-        align-self: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        border: solid 1px var(--main_text_color);
-        align-content: center;
-        justify-content: center;
-        margin-top: 3.3125rem; }
-        main .trending .trends-container .desktop-carrousel .btn-container .btn {
-          display: flex;
-          width: 1rem;
-          height: 2rem; }
-        main .trending .trends-container .desktop-carrousel .btn-container .left {
-          justify-self: flex-start; }
-        main .trending .trends-container .desktop-carrousel .btn-container .right {
-          justify-self: flex-end; }
-      main .trending .trends-container .desktop-carrousel .carrousel-container {
-        display: flex;
-        flex-flow: row nowrap; }
-        main .trending .trends-container .desktop-carrousel .carrousel-container::-webkit-scrollbar {
-          display: none; }
-        main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel {
-          width: max-content;
-          margin-top: 3.3125rem;
-          width: 90%;
-          display: flex;
-          flex-flow: row nowrap; }
-          main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .trend-gif-container {
-            display: flex;
-            flex-flow: row wrap;
-            width: 30%; }
-            main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .trend-gif-container img {
-              width: 100%; }
-          main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card {
-            display: flex;
-            flex-flow: row wrap;
-            position: relative;
-            margin: 2rem 1.3rem 1rem 1.3rem; }
-            main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card .gif-ctn {
-              height: 10rem;
-              width: auto; }
-              main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card .gif-ctn .gif {
-                height: 100%;
-                width: auto; }
-            main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card .filter {
-              display: none;
-              width: 100%;
-              height: 100%;
-              background-color: #572EE5;
-              opacity: 0.6;
-              position: absolute;
-              top: 0;
-              left: 0; }
-            main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card .gif-btn-ctn {
-              display: none; }
-            main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card .gif-title-ctn {
-              display: none; }
-  main .search-results .search-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 1rem; }
-    main .search-results .search-container::before {
-      margin-top: -3rem; }
-    main .search-results .search-container .gif-card {
-      display: flex;
-      flex-flow: row wrap;
-      position: relative;
-      margin: 1rem 1rem 1rem 1rem; }
-      main .search-results .search-container .gif-card .gif-ctn {
-        width: 16.25rem;
-        height: 12.5rem; }
-        main .search-results .search-container .gif-card .gif-ctn .gif {
-          height: 100%;
-          width: 100%; }
-      main .search-results .search-container .gif-card .filter {
-        display: none;
-        width: 100%;
-        height: 100%;
-        background-color: #572EE5;
-        opacity: 0.6;
-        position: absolute;
-        top: 0;
-        left: 0; }
-      main .search-results .search-container .gif-card .gif-btn-ctn {
-        display: none; }
-      main .search-results .search-container .gif-card .gif-title-ctn {
-        display: none; }
-
-  footer {
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3.125rem 9.75rem; }
-    footer h3 {
-      margin: 0;
-      font-size: 1rem; }
-    footer .share {
-      flex-flow: row wrap;
-      align-items: center;
-      width: 50%; }
-      footer .share h3 {
-        margin: 0;
-        font-size: 1rem; }
-      footer .share div {
-        justify-content: space-between;
-        margin: 0 1rem;
-        width: 20%; } }
-
-/*# sourceMappingURL=desktop.css.map */
+Backtrace:
+D:\Backup\Globant\Bloque 2\Proyecto 2 -GIFOS\styles\desktop.scss:2
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1278:in `expected'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1208:in `expected'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1203:in `tok!'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:677:in `block'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:670:in `ruleset'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:696:in `block_child'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:686:in `block_contents'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:41:in `parse'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:414:in `_to_tree'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
+C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
+C:/Program Files (x86)/Koala/bin/sass:22:in `load'
+C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...variables.scss\"\": expected \"{\", was \";\"\A         on line 2 of D:\Backup\Globant\Bloque 2\Proyecto 2 -GIFOS\styles\desktop.scss\A \A 1: <<<<<<< HEAD\A 2: @import \"variables.scss\";\A 3: @import \"mixins.scss\";\A 4: \A 5: @media screen and (min-width: 1024px){\A 6:     %hover-btn{\A 7:         color: var(--btn_hover);"; }
