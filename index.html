@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto&display=swap" rel="stylesheet">
     <title>GIFs 4 All</title>
     <script src="https://kit.fontawesome.com/ccc8f7a871.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://i.ytimg.com/vi/rXB5evT7l64/maxresdefault.jpg"></link>
 </head>
 <body>
     <header>
@@ -16,8 +17,8 @@
         <input type="checkbox" id="menu">
 
         <label for="menu">
-            <img src="assets/burger.svg" alt="menu-btn" class="menu-btn">
-            <img src="assets/button-close.svg" alt="close-btn" class="close-btn">
+            <i class="menu-btn fas fa-bars" id="menu-btn"></i>
+            <i class="close-btn fas fa-times" id="close-btn"></i>
         </label>
 
         <nav>
@@ -37,12 +38,12 @@
 
             <div class="search-bar" id="search-bar">
                 <div class="search-ctn" id ="search-ctn">
-                    <img src="assets/button-close.svg" alt="close-btn-search" id="cross" class="search-cross">
+                    <i id="cross" class="search-cross fas fa-times"></i>
 
                     <input type="text" class="search" id="search-input" placeholder="Busca GIFOS y más">
 
                     <label for="search"> <!-- en realidad esto es un label para el botón de buscar -->
-                        <img src="assets/icon-search.svg" alt="search-icon" id="search-icon">
+                        <i class="fas fa-search" id="search-icon"></i>
                     </label>
                 </div>
                 <div id="suggestion-ctn" class="hidden"></div>
@@ -101,7 +102,7 @@
                 <div class="desktop-carrousel">
 
                     <div class="btn-container">
-                        <img src="assets/button-left.svg" alt="left-btn" class="left btn">
+                        <i class="left btn fas fa-chevron-left"></i>
                     </div>
                     
                     <div class="carrousel-container">
@@ -113,7 +114,7 @@
                     </div>
                                             
                     <div class="btn-container">
-                        <img src="assets/button-right.svg" alt="right-btn" class="right btn">
+                        <i class="right btn fas fa-chevron-right"></i>
                     </div>
                 </div>
 

@@ -116,11 +116,15 @@ header{
 
     label{
         display: flex;
-        img{
+
+        i{
             align-content: center;
             font-family: $title-font;
             cursor: pointer;
+            align-self: center;
+            color: var(--main_text_color);
         }
+
         .close-btn{
             display: none;
         }
@@ -202,7 +206,7 @@ main{
                     border: none;
                     font-size: 1rem;
                     width: 85%;
-
+                    color: var(--small_text_color);
                     background-color: var(--background);
 
                     &:focus{
@@ -210,9 +214,10 @@ main{
                     }
                 }
     
-                img{
+                i{
                     width: 1.25rem;
                     cursor: pointer;
+                    color: var(--main_text_color)
                 }
             }
 

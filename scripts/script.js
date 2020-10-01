@@ -18,7 +18,8 @@ async function searchGIF(search){
 
     if (data.data.length > 0){
 
-        if (seeMoreClicks === 1){
+        if (seeMoreClicks === 1)
+        {
             searchResultsCtn.textContent = ""
         }
     
@@ -27,7 +28,8 @@ async function searchGIF(search){
 
         seeMore.classList.remove("hidden")
     
-        for (let i = 0; i < limit; i++){
+        for (let i = 0; i < limit; i++)
+        {
             addGIFToDOM(gifArr[i], searchResultsCtn);
         }
 
@@ -300,9 +302,9 @@ function autocompleteInDOM(complete, sugCtn){
 
     //Agrego evento a la sugerencia para que realice la búsqueda
     name.addEventListener("mousedown", () =>{
-
         search.value = name.textContent
-        runSearch()});
+        runSearch()
+    });
 
     //Agrego el evento para que se retraigan las sugerencias
     searchBar.addEventListener("focusout", deCompleteInDOM);

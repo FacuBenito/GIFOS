@@ -1,38 +1,343 @@
-/*
-Error: Invalid CSS after "...variables.scss"": expected "{", was ";"
-        on line 2 of D:\Backup\Globant\Bloque 2\Proyecto 2 -GIFOS\styles\styles.scss
+html[data-theme="light"] {
+  --background: #FFF;
+  --trending_background: #F3F5F8;
+  --main_text_color: #572EE5;
+  --small_text_color: #000;
+  --drawer_background: #572EE5;
+  --body_border: #572EE5;
+  --fancy_border: #572EE5;
+  --btn_color: #572EE5;
+  --btn_hover: white;
+  --li_hover: #50E3C2 ; }
 
-1: <<<<<<< HEAD
-2: @import "variables.scss";
-3: @import "mixins.scss";
-4: 
-5: *{
-6:     box-sizing: border-box;
-7:     margin: 0;
+html[data-theme="dark"] {
+  --background: #37383C;
+  --trending_background: #222326;
+  --main_text_color: #FFF;
+  --small_text_color: #FFF;
+  --drawer_background: #000;
+  --body_border: #000;
+  --fancy_border: #FFF;
+  --btn_color: #000000;
+  --btn_hover: black;
+  --li_hover: #5ED7C6 ; }
 
-Backtrace:
-D:\Backup\Globant\Bloque 2\Proyecto 2 -GIFOS\styles\styles.scss:2
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1278:in `expected'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1208:in `expected'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1203:in `tok!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:677:in `block'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:670:in `ruleset'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:696:in `block_child'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:686:in `block_contents'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:137:in `stylesheet'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:41:in `parse'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:414:in `_to_tree'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
-C:/Program Files (x86)/Koala/bin/sass:22:in `load'
-C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...variables.scss\"\": expected \"{\", was \";\"\A         on line 2 of D:\Backup\Globant\Bloque 2\Proyecto 2 -GIFOS\styles\styles.scss\A \A 1: <<<<<<< HEAD\A 2: @import \"variables.scss\";\A 3: @import \"mixins.scss\";\A 4: \A 5: *{\A 6:     box-sizing: border-box;\A 7:     margin: 0;"; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: white;
+  text-decoration: none; }
+
+.gif-title-ctn {
+  display: none; }
+
+.gif-btn-ctn {
+  display: none; }
+
+button {
+  cursor: pointer; }
+
+.message {
+  margin: 2rem auto;
+  color: #50E3C2;
+  font-family: "Montserrat", "sans-serif";
+  width: auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  align-self: center;
+  justify-self: center; }
+
+body {
+  background-color: var(--background); }
+
+header {
+  border-top: var(--body_border) solid 0.3rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+  padding: 1.8rem 1rem;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: var(--background);
+  z-index: 200; }
+  header img {
+    font-family: "Roboto", "sans-serif";
+    font-weight: 500;
+    cursor: pointer; }
+  header input[type="checkbox"] {
+    display: none; }
+    header input[type="checkbox"]:checked ~ nav {
+      display: flex;
+      flex-flow: column wrap;
+      background-color: var(--drawer_background);
+      color: white;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 11%;
+      left: 0rem;
+      padding: 10% 0 50% 0;
+      z-index: 2; }
+      header input[type="checkbox"]:checked ~ nav ul {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center; }
+        header input[type="checkbox"]:checked ~ nav ul li {
+          padding: .5rem;
+          text-align: center; }
+          header input[type="checkbox"]:checked ~ nav ul li:after {
+            content: "";
+            display: block;
+            margin: 0 auto;
+            width: 25%;
+            border-bottom: solid 1px white;
+            margin-top: 1rem;
+            opacity: 50%; }
+          header input[type="checkbox"]:checked ~ nav ul li:last-child {
+            display: none; }
+    header input[type="checkbox"]:checked ~ label .menu-btn {
+      display: none; }
+    header input[type="checkbox"]:checked ~ label .close-btn {
+      display: flex; }
+  header label {
+    display: flex; }
+    header label i {
+      align-content: center;
+      font-family: "Montserrat", "sans-serif";
+      cursor: pointer;
+      align-self: center;
+      color: var(--main_text_color); }
+    header label .close-btn {
+      display: none; }
+  header nav {
+    font-family: "Montserrat", "sans-serif";
+    font-size: 1rem;
+    font-weight: 500;
+    display: none; }
+    header nav ul {
+      list-style-type: none; }
+
+main {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center; }
+  main .intro, main .trending {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center; }
+    main .intro h1, main .trending h1 {
+      align-self: center;
+      width: 76.6%;
+      font-family: "Montserrat", "sans-serif";
+      color: var(--main_text_color);
+      font-size: 1.56rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 2rem;
+      margin: .45rem 0 2rem 0; }
+      main .intro h1 br, main .trending h1 br {
+        display: none; }
+      main .intro h1 span, main .trending h1 span {
+        color: #50E3C2; }
+    main .intro img, main .trending img {
+      width: 72.8%;
+      align-self: center; }
+    main .intro .search-bar, main .trending .search-bar {
+      width: 90%;
+      border: 1px solid var(--fancy_border);
+      padding: 1rem 1.25rem 1rem 3.5rem;
+      font-family: "Roboto", "sans-serif";
+      border-radius: 250px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      margin-bottom: 2rem; }
+      main .intro .search-bar .search-ctn, main .trending .search-bar .search-ctn {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        width: 100%; }
+        main .intro .search-bar .search-ctn .search-cross, main .trending .search-bar .search-ctn .search-cross {
+          display: none; }
+        main .intro .search-bar .search-ctn input, main .trending .search-bar .search-ctn input {
+          border: none;
+          font-size: 1rem;
+          width: 85%;
+          color: var(--small_text_color);
+          background-color: var(--background); }
+          main .intro .search-bar .search-ctn input:focus, main .trending .search-bar .search-ctn input:focus {
+            border: none; }
+        main .intro .search-bar .search-ctn i, main .trending .search-bar .search-ctn i {
+          width: 1.25rem;
+          cursor: pointer;
+          color: var(--main_text_color); }
+      main .intro .search-bar #suggestion-ctn, main .trending .search-bar #suggestion-ctn {
+        margin-top: 1rem;
+        border-top: 1px #9CAFC3 solid;
+        padding-top: 1.2rem;
+        width: 100%; }
+        main .intro .search-bar #suggestion-ctn .suggestion, main .trending .search-bar #suggestion-ctn .suggestion {
+          font-family: "Roboto", "sans-serif";
+          font-size: 1rem;
+          color: #9CAFC3;
+          width: 100%;
+          height: 2.625rem;
+          display: flex;
+          flex-flow: row wrap;
+          align-items: center;
+          cursor: pointer; }
+          main .intro .search-bar #suggestion-ctn .suggestion:hover, main .trending .search-bar #suggestion-ctn .suggestion:hover {
+            background-color: rgba(211, 211, 211, 0.3); }
+          main .intro .search-bar #suggestion-ctn .suggestion .sug-name::before, main .trending .search-bar #suggestion-ctn .suggestion .sug-name::before {
+            display: flex;
+            background-image: url("assets/icon-search.svg"); }
+    main .intro .trend-title-container, main .trending .trend-title-container {
+      font-family: "Montserrat", "sans-serif";
+      color: var(--main_text_color);
+      margin-bottom: 2.81rem; }
+      main .intro .trend-title-container h2, main .trending .trend-title-container h2 {
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 700; }
+      main .intro .trend-title-container p, main .trending .trend-title-container p {
+        padding: 0.32rem;
+        text-align: center;
+        font-size: 0.85rem;
+        width: 60vw;
+        line-height: 1.56rem;
+        font-weight: 500;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: capitalize; }
+  main .trending {
+    font-family: "Montserrat", "sans-serif";
+    color: var(--main_text_color);
+    overflow: scroll; }
+    main .trending .trends-container {
+      overflow: scroll;
+      width: 100%;
+      background-color: var(--trending_background);
+      padding: 2.875rem 0 4.125rem 0; }
+      main .trending .trends-container h2 {
+        text-align: center;
+        font-size: 1.25rem;
+        line-height: 1.9rem;
+        font-weight: 700; }
+      main .trending .trends-container p {
+        padding: 1rem;
+        font-family: "Roboto", "sans-serif";
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.44rem; }
+      main .trending .trends-container .trend-gif-card {
+        margin: 2rem 1.3rem 1rem 1.3rem; }
+      main .trending .trends-container .btn-container {
+        display: none; }
+        main .trending .trends-container .btn-container .btn {
+          display: none; }
+      main .trending .trends-container .carrousel-container {
+        overflow: scroll;
+        scrollbar-width: 0; }
+        main .trending .trends-container .carrousel-container::-webkit-scrollbar {
+          display: none; }
+        main .trending .trends-container .carrousel-container .carrousel {
+          width: max-content;
+          display: flex;
+          flex-flow: row nowrap; }
+          main .trending .trends-container .carrousel-container .carrousel .gif-card {
+            display: flex;
+            flex-flow: row wrap;
+            position: relative;
+            margin: 2rem 1.3rem 1rem 1.3rem; }
+            main .trending .trends-container .carrousel-container .carrousel .gif-card .gif-ctn {
+              height: 10rem;
+              width: auto; }
+              main .trending .trends-container .carrousel-container .carrousel .gif-card .gif-ctn .gif {
+                height: 100%;
+                width: auto; }
+  main .search-results {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 100%; }
+    main .search-results::before {
+      content: "";
+      display: block;
+      margin: -1rem auto 0 auto;
+      width: 25%;
+      border-bottom: solid 1px lightgrey;
+      opacity: 100%; }
+    main .search-results h2 {
+      font-size: 2.18rem;
+      font-family: "Montserrat", "sans-serif";
+      color: var(--main_text_color);
+      margin: 3rem 0; }
+    main .search-results .search-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center; }
+      main .search-results .search-container .gif-card {
+        display: flex;
+        flex-flow: row wrap;
+        position: relative;
+        margin-top: 1rem;
+        margin: 0.5rem 0.5rem;
+        background-color: lightgray; }
+        main .search-results .search-container .gif-card .gif-ctn {
+          width: 9.75rem;
+          height: 7.5rem; }
+          main .search-results .search-container .gif-card .gif-ctn .gif {
+            height: 100%;
+            width: 100%; }
+    main .search-results button {
+      width: 7.9rem;
+      height: 3.125rem;
+      color: var(--main_text_color);
+      border: 1px solid var(--main_text_color);
+      font-size: .7rem;
+      font-weight: bold;
+      font-family: "Montserrat", "sans-serif";
+      background-color: var(--background);
+      border-radius: 25px;
+      margin: 4.9rem 0;
+      letter-spacing: 0; }
+  main .hidden {
+    display: none; }
+
+footer {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  padding: .5rem 0 1rem 0;
+  border-bottom: var(--body_border) solid 0.3rem;
+  color: var(--small_text_color); }
+  footer .share {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center; }
+    footer .share h3 {
+      font-size: 1rem;
+      font-family: "Roboto", "sans-serif";
+      font-weight: 400; }
+    footer .share div {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      margin-top: 2rem; }
+  footer h3 {
+    margin-top: 3rem;
+    font-family: "Roboto", "sans-serif";
+    font-weight: 400;
+    font-size: .9rem; }
+
+/*# sourceMappingURL=styles.css.map */

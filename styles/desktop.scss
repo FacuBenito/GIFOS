@@ -2,6 +2,7 @@
 @import "mixins.scss";
 
 @media screen and (min-width: 1024px){
+
     %hover-btn{
         color: var(--btn_hover);
         background-color: var(--main_text_color);
@@ -99,6 +100,10 @@
                     color: var(--main_text_color);
                     align-self: center;
                     margin: 0 3rem;
+
+                    &:hover{
+                        border-bottom: 1px var(--li_hover) solid;
+                    }
 
                     &:last-child{
                         padding: 0 1rem;
@@ -216,9 +221,7 @@
                         
                         .btn{
                             display: flex;
-                            width: 1rem;
-                            height: 2rem;
-
+                            background-color: transparent;
                         }
     
                         .left{

@@ -9,11 +9,13 @@ function themeToggler(e){
     menu.checked = false;
 
     if (currentTheme == "light"){
-
         document.documentElement.setAttribute("data-theme", "dark");
-        darkModeBtn.textContent = "Modo Diurno"
+        darkModeBtn.textContent = "Modo Diurno";
+        home.setAttribute("src", "assets/logo-mobile-modo-noct.svg");
+        
     }else{
-        document.documentElement.setAttribute("data-theme", "light")
-        darkModeBtn.textContent = "Modo Nocturno"
+        document.documentElement.setAttribute("data-theme", "light");
+        darkModeBtn.textContent = "Modo Nocturno";
+        home.setAttribute("src", "assets/logo-mobile.svg");
     }
 }
