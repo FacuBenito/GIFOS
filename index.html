@@ -82,7 +82,7 @@
                 </template>
 
             </div>
-            <button id="see-more">VER MÁS</button>
+            <button id="see-more" class="btn">VER MÁS</button>
         </section>
 
         <section id="favorites" class="hidden could-hide">
@@ -94,33 +94,43 @@
             <article id="create-ctn" class="create-ctn">
 
                 <div class="camara-ctn">
-                    <img class="camara" src="assets/camara.svg" alt="camara">
+                    <img class="camara" id="camara" src="assets/camara.svg" alt="camara">
                     <img class="cam-light" src="assets/element-luz-camara.svg" alt="lucecita">
                 </div>
 
                 <div class="video-ctn" id="video-ctn">
                     <span class="corner-left corner-top"></span>
                     <span class="corner-right corner-top"></span>
-                    <video id="gif-capture" controls autoplay></video>
+
+                    <h2 id="create-title">Aquí podrás <br>crear tus propios <span class="GIFOS">GIFOS</span></h2>
+                    <h3 id="create-subtitle">¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</h3>
+
+                    <video id="gif-capture" class="hidden" controls autoplay></video>
                     <span class="corner-left corner-bottom"></span>
                     <span class="corner-right corner-bottom"></span>
                 </div>
 
-                <div class="another-fucking-div">
+                <div class="underbar-ctn">
+                    <div class="empty"></div>
 
                     <div class="number-ctn">
                         <span class="number">1</span>
                         <span class="number">2</span>
                         <span class="number">3</span>
                     </div>
-                    <div class="film-ctn">
-                        <img class="film-icon" src="assets/pelicula.svg" alt="">
+
+                    <div class="hidden" id="counter">
+                        <span></span>
                     </div>
                 </div>
 
-                <div class="line">
-                    
+                <div class="film-ctn">
+                    <img class="film-icon" id="film-icon" src="assets/pelicula.svg" alt="">
                 </div>
+
+                <div class="line"></div>
+
+                <button class="btn" id="start-btn">COMENZAR</button>
             </article>
         </section>
         <section id="my-gifos" class="hidden could-hide"></section>
@@ -134,7 +144,7 @@
                 <div class="desktop-carrousel">
 
                     <div class="btn-container">
-                        <i class="left btn fas fa-chevron-left"></i>
+                        <i class="left carrousel-btn fas fa-chevron-left"></i>
                     </div>
                     
                     <div class="carrousel-container">
@@ -146,7 +156,7 @@
                     </div>
                                             
                     <div class="btn-container">
-                        <i class="right btn fas fa-chevron-right"></i>
+                        <i class="right carrousel-btn fas fa-chevron-right"></i>
                     </div>
                 </div>
 
@@ -170,8 +180,7 @@
 
     </footer>
 
-    <script src="scripts/create.js">
-    </script>
+    <script src="scripts/create.js"></script>
     <script src="scripts/darkmode.js"></script>
     <script src="scripts/script.js"></script>
 </body>

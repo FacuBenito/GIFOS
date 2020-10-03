@@ -23,7 +23,14 @@ html[data-theme="dark"] {
   --li_hover: #5ED7C6 ; }
 
 @media screen and (min-width: 1024px) {
-  header nav ul .li-element:last-child:hover, main .trending .trends-container .desktop-carrousel .btn-container:hover, main .search-results button:hover, main .create-ctn .another-fucking-div .number-ctn .number:hover {
+  @keyframes blinking {
+    0% {
+      opacity: 1; }
+    50% {
+      opacity: 0; }
+    100% {
+      opacity: 1; } }
+  header nav ul .li-element:last-child:hover, main .trending .trends-container .desktop-carrousel .btn-container:hover, main .search-results button:hover, main .create-ctn .btn:hover {
     color: var(--btn_hover);
     background-color: var(--main_text_color); }
 
@@ -168,7 +175,7 @@ html[data-theme="dark"] {
         align-content: center;
         justify-content: center;
         margin-top: 3.3125rem; }
-        main .trending .trends-container .desktop-carrousel .btn-container .btn {
+        main .trending .trends-container .desktop-carrousel .btn-container .carrousel-btn {
           display: flex;
           background-color: transparent; }
         main .trending .trends-container .desktop-carrousel .btn-container .left {
@@ -248,23 +255,25 @@ html[data-theme="dark"] {
         display: none; }
   main .create-ctn {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    position: relative; }
+    flex-flow: column wrap;
+    align-items: center;
+    position: relative;
+    height: 80vh; }
     main .create-ctn .camara-ctn {
       position: absolute;
-      top: 10vh;
-      left: 10vw; }
+      top: 100px;
+      left: -200px; }
       main .create-ctn .camara-ctn .cam-light {
         position: relative;
         margin-left: -3px;
-        margin-bottom: 15px; }
+        margin-bottom: 15px;
+        animation: blinking .2s infinite; }
     main .create-ctn .video-ctn {
       width: 43rem;
       height: 24.375rem;
       border: 1px solid var(--fancy_border);
       display: flex;
-      flex-flow: row wrap;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       position: relative; }
@@ -288,41 +297,82 @@ html[data-theme="dark"] {
       main .create-ctn .video-ctn .corner-bottom {
         border-bottom: 1px solid #50E3C2;
         bottom: 1.5rem; }
-    main .create-ctn .another-fucking-div {
+      main .create-ctn .video-ctn h2 {
+        font-family: "Montserrat", "sans-serif";
+        font-size: 1.5625rem;
+        color: var(--main_text_color);
+        font-weight: bold;
+        align-self: center;
+        text-align: center;
+        line-height: 2.1875rem; }
+        main .create-ctn .video-ctn h2 .GIFOS {
+          color: #50E3C2; }
+      main .create-ctn .video-ctn h3 {
+        text-align: center;
+        font-family: "Roboto", "sans-serif";
+        font-size: 1rem;
+        font-weight: normal;
+        line-height: 1.8125rem;
+        margin-top: .5rem;
+        color: var(--small_text_color); }
+    main .create-ctn .underbar-ctn {
       display: flex;
       flex-flow: row wrap;
-      width: 100%;
-      justify-content: center;
-      position: relative; }
-      main .create-ctn .another-fucking-div .number-ctn {
-        width: 15%;
+      width: 43rem; }
+      main .create-ctn .underbar-ctn .empty {
+        width: 20%; }
+      main .create-ctn .underbar-ctn .number-ctn {
+        width: 60%;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
         align-items: center;
         justify-self: center;
-        justify-content: space-around; }
-        main .create-ctn .another-fucking-div .number-ctn .number {
+        justify-content: space-evenly; }
+        main .create-ctn .underbar-ctn .number-ctn .number {
           display: inline-block;
           font-family: "Roboto", "sans-serif";
           color: var(--main_text_color);
           border: 1px var(--main_text_color) solid;
-          background-color: var(--btn_hover);
+          background-color: transparent;
           font-weight: 500;
           font-size: 1.2rem;
           border-radius: 50%;
-          padding: 6px 11px;
+          padding: 0.375rem 0.6875rem;
           margin: 2rem 0; }
-      main .create-ctn .another-fucking-div .film-ctn {
-        justify-self: flex-end;
-        position: absolute;
-        top: 0;
-        right: 12.5%; }
+        main .create-ctn .underbar-ctn .number-ctn .isCurrent {
+          background-color: var(--main_text_color);
+          color: var(--btn_hover); }
+      main .create-ctn .underbar-ctn .counter {
+        font-family: "Roboto", "sans-serif";
+        font-weight: bold;
+        color: var(--main_text_color);
+        font-size: 1rem;
+        width: 20%;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: flex-end; }
+      main .create-ctn .underbar-ctn .special-hover {
+        font-size: 0.8rem;
+        cursor: pointer; }
+        main .create-ctn .underbar-ctn .special-hover:hover {
+          border-bottom: 2px var(--li_hover) solid; }
+    main .create-ctn .film-ctn {
+      display: flex;
+      flex-flow: row wrap;
+      justify-self: flex-end;
+      position: absolute;
+      top: 0;
+      right: 12.5%;
+      transform: translate(250px, 375px); }
     main .create-ctn .line {
       background-color: var(--main_text_color);
       border-radius: 250px;
       width: 50rem;
       height: .5rem; }
+  main .hidden-trending {
+    display: none; }
 
   footer {
     flex-flow: row wrap;
@@ -344,9 +394,9 @@ html[data-theme="dark"] {
         margin: 0 1rem;
         width: 20%; } }
 @media screen and (max-width: 1024px) {
-  main .camara-ctn {
+  main .create-ctn .camara-ctn {
     display: none; }
-  main .film-ctn {
+  main .create-ctn .film-ctn {
     display: none; } }
 
 /*# sourceMappingURL=desktop.css.map */

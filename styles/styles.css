@@ -53,6 +53,19 @@ button {
 body {
   background-color: var(--background); }
 
+.btn {
+  width: 7.9rem;
+  height: 3.125rem;
+  color: var(--main_text_color);
+  border: 1px solid var(--main_text_color);
+  font-size: .7rem;
+  font-weight: bold;
+  font-family: "Montserrat", "sans-serif";
+  background-color: var(--background);
+  border-radius: 25px;
+  margin: 4.9rem 0;
+  letter-spacing: 0; }
+
 header {
   border-top: var(--body_border) solid 0.3rem;
   display: flex;
@@ -299,18 +312,6 @@ main {
           main .search-results .search-container .gif-card .gif-ctn .gif {
             height: 100%;
             width: 100%; }
-    main .search-results button {
-      width: 7.9rem;
-      height: 3.125rem;
-      color: var(--main_text_color);
-      border: 1px solid var(--main_text_color);
-      font-size: .7rem;
-      font-weight: bold;
-      font-family: "Montserrat", "sans-serif";
-      background-color: var(--background);
-      border-radius: 25px;
-      margin: 4.9rem 0;
-      letter-spacing: 0; }
   main .hidden {
     display: none; }
 

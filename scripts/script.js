@@ -133,6 +133,7 @@ createBtn.addEventListener("click", () =>{
     
     hiddenSections.forEach(section => section.classList.add("hidden"));
     createGif.classList.remove("hidden");
+    trending.classList.add("hidden-trending");
 });
 
 search.addEventListener("keyup", (e) =>{
@@ -144,7 +145,8 @@ search.addEventListener("keyup", (e) =>{
 home.addEventListener("click", () => {
 
     hiddenSections.forEach(section => section.classList.add("hidden"));
-
+    
+    trending.classList.remove("hidden-trending")
     intro.classList.remove("hidden");
     trendingTitle.classList.remove("hidden");
     search.value = "";
@@ -155,6 +157,7 @@ favoritesBtn.addEventListener("click", () => {
 
     hiddenSections.forEach(section => section.classList.add("hidden"));
 
+    trending.classList.remove("hidden-trending")
     favorites.classList.remove("hidden");
     menu.checked = false;
 

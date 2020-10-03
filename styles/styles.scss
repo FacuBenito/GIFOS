@@ -41,6 +41,20 @@ body{
     background-color: var(--background);
 }
 
+.btn{
+    width: 7.9rem;
+    height: 3.125rem;
+    color: var(--main_text_color);
+    border: 1px solid var(--main_text_color);
+    font-size: .7rem;
+    font-weight: bold;
+    font-family: $title-font;
+    background-color: var(--background);
+    border-radius: 25px;
+    margin: 4.9rem 0;
+    letter-spacing: 0;
+}
+
 //-------------Header-------------------
 
 header{
@@ -285,7 +299,6 @@ main{
         font-family: $title-font;
         color: var(--main_text_color);
         overflow: scroll;
-        
 
         .trends-container{
             overflow: scroll;
@@ -407,25 +420,13 @@ main{
 
             }   
         }
-
-        button{
-            width: 7.9rem;
-            height: 3.125rem;
-            color: var(--main_text_color);
-            border: 1px solid var(--main_text_color);
-            font-size: .7rem;
-            font-weight: bold;
-            font-family: $title-font;
-            background-color: var(--background);
-            border-radius: 25px;
-            margin: 4.9rem 0;
-            letter-spacing: 0;
-        }
     }
 
     .hidden{
         display: none;
     }
+
+
 }
 
 footer{
@@ -463,4 +464,3 @@ footer{
         font-size: .9rem;
     }
 }
-
