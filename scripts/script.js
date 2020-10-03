@@ -129,6 +129,18 @@ cross.addEventListener("mousedown", () => search.value = "");
 glass.addEventListener("mousedown", runSearch);
 favorites.addEventListener("click", displayFavorites);
 
+createBtn.addEventListener("click", () =>{
+    
+    hiddenSections.forEach(section => section.classList.add("hidden"));
+    createGif.classList.remove("hidden");
+});
+
+search.addEventListener("keyup", (e) =>{
+    if (e.keyCode === 13){
+        runSearch();
+    }
+})
+
 home.addEventListener("click", () => {
 
     hiddenSections.forEach(section => section.classList.add("hidden"));

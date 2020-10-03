@@ -23,10 +23,10 @@
 
         <nav>
             <ul>
-                <li id="dark-mode-btn"><a href="#">Modo Nocturno</a></li>
-                <li id="favorites-btn"><a href="#">Favoritos</a></li>
-                <li id="my-gifos-btn"><a href="#">Mis GIFOS</a></li>
-                <li id="create-gif-btn"><i class="fas fa-plus" id="create-gif"></i></li>
+                <li class="li-element" id="dark-mode-btn"><a href="#">Modo Nocturno</a></li>
+                <li class="li-element" id="favorites-btn"><a href="#">Favoritos</a></li>
+                <li class="li-element" id="my-gifos-btn"><a href="#">Mis GIFOS</a></li>
+                <li class="li-element" id="create-gif-btn"><i class="fas fa-plus" id="create-gif"></i></li>
             </ul>
         </nav>
     </header>
@@ -90,7 +90,39 @@
             <h2>Favoritos</h2>
         </section>
 
-        <section id="create" class="hidden could-hide"></section>
+        <section id="create" class="hidden could-hide">
+            <article id="create-ctn" class="create-ctn">
+
+                <div class="camara-ctn">
+                    <img class="camara" src="assets/camara.svg" alt="camara">
+                    <img class="cam-light" src="assets/element-luz-camara.svg" alt="lucecita">
+                </div>
+
+                <div class="video-ctn" id="video-ctn">
+                    <span class="corner-left corner-top"></span>
+                    <span class="corner-right corner-top"></span>
+                    <video id="gif-capture" controls autoplay></video>
+                    <span class="corner-left corner-bottom"></span>
+                    <span class="corner-right corner-bottom"></span>
+                </div>
+
+                <div class="another-fucking-div">
+
+                    <div class="number-ctn">
+                        <span class="number">1</span>
+                        <span class="number">2</span>
+                        <span class="number">3</span>
+                    </div>
+                    <div class="film-ctn">
+                        <img class="film-icon" src="assets/pelicula.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="line">
+                    
+                </div>
+            </article>
+        </section>
         <section id="my-gifos" class="hidden could-hide"></section>
         <section id="expanded" class="hidden could-hide"></section>
 
@@ -138,6 +170,8 @@
 
     </footer>
 
+    <script src="scripts/create.js">
+    </script>
     <script src="scripts/darkmode.js"></script>
     <script src="scripts/script.js"></script>
 </body>

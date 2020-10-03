@@ -96,7 +96,7 @@
                 justify-content: space-around;
                 padding: 0;
 
-                li{
+                .li-element{
                     color: var(--main_text_color);
                     align-self: center;
                     margin: 0 3rem;
@@ -123,6 +123,13 @@
 
                         }
                     }
+
+                    .create-active{
+                        color: white;
+                        background-color: #9CAFC3;
+                        border: 1px solid #9CAFC3;
+                    }
+
                 }
             }
         }
@@ -130,6 +137,7 @@
         label{
             display: none;
         }
+        
     }
 
     main{
@@ -365,11 +373,7 @@
                         
                         @extend %hover;
                     }
-
-                    
                 }
-
-                
             }
 
             button{
@@ -378,6 +382,107 @@
                 }
             }
             
+        }
+
+        .create-ctn{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            position: relative;
+
+            .camara-ctn{
+                position: absolute;
+                top: 10vh;
+                left: 10vw;
+                .cam-light{
+                    position: relative;
+                    margin-left: -3px;
+                    margin-bottom: 15px;
+                }
+                .camara{
+                }
+            }
+
+            .video-ctn{
+                width: 43rem;
+                height: 24.375rem;
+                border: 1px solid var(--fancy_border);
+                @include behave-horizontal;
+                position: relative;
+
+                #gif-capture{
+                    width: 65%;
+                    height: 65%;
+                }
+
+                .corner-right, .corner-left {
+                    height: 25px;
+                    width: 27px;
+                    display: inline-block;
+                    position: absolute;
+                }
+                  .corner-right {
+                    border-right: 1px solid $main-green;
+                    right: 1.5rem;
+                  }
+                  .corner-left {
+                    border-left: 1px solid $main-green;
+                    left: 1.5rem;
+                  }
+                  .corner-top {
+                    border-top: 1px solid $main-green;
+                    top: 1.5rem;
+                  }
+                  .corner-bottom {
+                    border-bottom: 1px solid $main-green;
+                    bottom: 1.5rem;
+                  }
+            }
+            .another-fucking-div{
+                display: flex;
+                flex-flow: row wrap;
+                width: 100%;
+                justify-content: center;
+                position: relative;
+                .number-ctn{
+                    width: 15%;
+                    @include behave-horizontal;
+                    justify-self: center;
+                    justify-content: space-around;
+
+                    .number{
+                        display: inline-block;
+                        font-family: $text-font;
+                        color: var(--main_text_color);
+                        border: 1px var(--main_text_color) solid;
+                        background-color: var(--btn_hover);
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                        border-radius: 50%;
+                        padding: 6px 11px;
+                        margin: 2rem 0;
+                        
+                        &:hover{
+                            @extend %hover-btn;
+                        }
+                    }
+                }
+
+                .film-ctn{
+                    justify-self: flex-end;
+                    position: absolute;
+                    top: 0;
+                    right: 12.5%;
+
+                }
+            }
+
+            .line{
+                background-color: var(--main_text_color);
+                border-radius: 250px;
+                width: 50rem;
+                height: .5rem;
+            }
         }
     }
 
@@ -412,6 +517,20 @@
             }
         }
 
+    }
+
+}
+
+@media screen and (max-width: 1024px){
+
+    main{
+        .camara-ctn{
+            display: none;
+        }
+
+        .film-ctn{
+            display: none;
+        }
     }
 
 }

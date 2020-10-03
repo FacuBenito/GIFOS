@@ -23,7 +23,7 @@ html[data-theme="dark"] {
   --li_hover: #5ED7C6 ; }
 
 @media screen and (min-width: 1024px) {
-  header nav ul li:last-child:hover, main .trending .trends-container .desktop-carrousel .btn-container:hover, main .search-results button:hover {
+  header nav ul .li-element:last-child:hover, main .trending .trends-container .desktop-carrousel .btn-container:hover, main .search-results button:hover, main .create-ctn .another-fucking-div .number-ctn .number:hover {
     color: var(--btn_hover);
     background-color: var(--main_text_color); }
 
@@ -93,13 +93,13 @@ html[data-theme="dark"] {
         align-content: center;
         justify-content: space-around;
         padding: 0; }
-        header nav ul li {
+        header nav ul .li-element {
           color: var(--main_text_color);
           align-self: center;
           margin: 0 3rem; }
-          header nav ul li:hover {
+          header nav ul .li-element:hover {
             border-bottom: 1px var(--li_hover) solid; }
-          header nav ul li:last-child {
+          header nav ul .li-element:last-child {
             padding: 0 1rem;
             margin: 0;
             width: auto;
@@ -111,6 +111,10 @@ html[data-theme="dark"] {
             height: 48px;
             line-height: 48px;
             background-color: transparent; }
+          header nav ul .li-element .create-active {
+            color: white;
+            background-color: #9CAFC3;
+            border: 1px solid #9CAFC3; }
     header label {
       display: none; }
 
@@ -242,6 +246,83 @@ html[data-theme="dark"] {
         display: none; }
       main .search-results .search-container .gif-card .gif-title-ctn {
         display: none; }
+  main .create-ctn {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    position: relative; }
+    main .create-ctn .camara-ctn {
+      position: absolute;
+      top: 10vh;
+      left: 10vw; }
+      main .create-ctn .camara-ctn .cam-light {
+        position: relative;
+        margin-left: -3px;
+        margin-bottom: 15px; }
+    main .create-ctn .video-ctn {
+      width: 43rem;
+      height: 24.375rem;
+      border: 1px solid var(--fancy_border);
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      position: relative; }
+      main .create-ctn .video-ctn #gif-capture {
+        width: 65%;
+        height: 65%; }
+      main .create-ctn .video-ctn .corner-right, main .create-ctn .video-ctn .corner-left {
+        height: 25px;
+        width: 27px;
+        display: inline-block;
+        position: absolute; }
+      main .create-ctn .video-ctn .corner-right {
+        border-right: 1px solid #50E3C2;
+        right: 1.5rem; }
+      main .create-ctn .video-ctn .corner-left {
+        border-left: 1px solid #50E3C2;
+        left: 1.5rem; }
+      main .create-ctn .video-ctn .corner-top {
+        border-top: 1px solid #50E3C2;
+        top: 1.5rem; }
+      main .create-ctn .video-ctn .corner-bottom {
+        border-bottom: 1px solid #50E3C2;
+        bottom: 1.5rem; }
+    main .create-ctn .another-fucking-div {
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      justify-content: center;
+      position: relative; }
+      main .create-ctn .another-fucking-div .number-ctn {
+        width: 15%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        justify-content: space-around; }
+        main .create-ctn .another-fucking-div .number-ctn .number {
+          display: inline-block;
+          font-family: "Roboto", "sans-serif";
+          color: var(--main_text_color);
+          border: 1px var(--main_text_color) solid;
+          background-color: var(--btn_hover);
+          font-weight: 500;
+          font-size: 1.2rem;
+          border-radius: 50%;
+          padding: 6px 11px;
+          margin: 2rem 0; }
+      main .create-ctn .another-fucking-div .film-ctn {
+        justify-self: flex-end;
+        position: absolute;
+        top: 0;
+        right: 12.5%; }
+    main .create-ctn .line {
+      background-color: var(--main_text_color);
+      border-radius: 250px;
+      width: 50rem;
+      height: .5rem; }
 
   footer {
     flex-flow: row wrap;
@@ -262,5 +343,10 @@ html[data-theme="dark"] {
         justify-content: space-between;
         margin: 0 1rem;
         width: 20%; } }
+@media screen and (max-width: 1024px) {
+  main .camara-ctn {
+    display: none; }
+  main .film-ctn {
+    display: none; } }
 
 /*# sourceMappingURL=desktop.css.map */
