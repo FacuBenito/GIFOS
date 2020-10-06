@@ -299,19 +299,34 @@ main {
       display: flex;
       flex-flow: row wrap;
       justify-content: center; }
-      main .search-results .search-container .gif-card {
-        display: flex;
-        flex-flow: row wrap;
-        position: relative;
-        margin-top: 1rem;
-        margin: 0.5rem 0.5rem;
-        background-color: lightgray; }
-        main .search-results .search-container .gif-card .gif-ctn {
-          width: 9.75rem;
-          height: 7.5rem; }
-          main .search-results .search-container .gif-card .gif-ctn .gif {
-            height: 100%;
-            width: 100%; }
+  main .favorites {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%; }
+    main .favorites h2 {
+      color: var(--main_text_color);
+      font-size: 1.25rem;
+      margin: .5rem;
+      font-family: "Montserrat", "sans-serif"; }
+    main .favorites .fav-ctn {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center; }
+  main .gif-card {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    margin-top: 1rem;
+    margin: 0.5rem 0.5rem;
+    background-color: lightgray; }
+    main .gif-card .gif-ctn {
+      width: 9.75rem;
+      height: 7.5rem; }
+      main .gif-card .gif-ctn .gif {
+        height: 100%;
+        width: 100%; }
   main .hidden {
     display: none; }
 

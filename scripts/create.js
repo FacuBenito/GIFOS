@@ -6,11 +6,11 @@ let crSubTitle = document.getElementById("create-subtitle");
 let counter = document.getElementById("counter")
 
 startBtn.addEventListener("click", recordProcess);
-let cont = 0;
+let stageCont = 0;
 
 function recordProcess(){
 
-	switch (cont) {
+	switch (stageCont) {
 		case 0:
 			firstStage();
 			break;
@@ -50,7 +50,7 @@ function firstStage(){
 	// successCallback
 	function (localMediaStream) {
 		video.srcObject = localMediaStream;
-		cont++;
+		stageCont++;
 		recordProcess();
 	},
 
@@ -58,7 +58,7 @@ function firstStage(){
 	function(err) {
 		alert("Debes dar permiso para grabar");
 		console.log("Ocurrió el siguiente error: " + err);
-		cont = 0;
+		stageCont = 0;
 
 	});
 }
@@ -72,7 +72,7 @@ function secondStage(){
 	crSubTitle.classList.add("hidden");
 	stage1.classList.remove("isCurrent");
 	stage2.classList.add("isCurrent");
-	cont++;
+	stageCont++;
 
 }
 
@@ -82,7 +82,7 @@ function thirdStage(){
 	counter.classList.remove("hidden");
 	counter.children[0].textContent	 = "00:00:00"
 	startBtn.textContent = "FINALIZAR";
-	cont++;
+	stageCont++;
 }
 
 function fourthStage() {
@@ -92,7 +92,7 @@ function fourthStage() {
 	counter.children[0].textContent = "REPETIR CAPTURA";
 	counter.children[0].classList.add("special-hover");
 	
-	cont++;
+	stageCont++;
 
 }
 

@@ -255,7 +255,7 @@ html[data-theme="dark"] {
         display: none; }
   main .create-ctn {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     align-items: center;
     position: relative;
     height: 80vh; }

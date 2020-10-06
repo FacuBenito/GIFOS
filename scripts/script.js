@@ -94,6 +94,32 @@ async function autocomplete(){
     }
 }
 
+async function getFavGIFs(){
+
+    let gifArr = favGifs;
+
+    if (gifArr !== null){
+        favCtn.textContent = ""
+        gifArr = gifArr.join(',');
+    
+        let resp = await fetch(`https://api.giphy.com/v1/gifs?ids=${gifArr}&api_key=${apiKey}`);
+        let data = await resp.json();
+        console.log(data.data);
+
+        for (let i = 0; i < data.data.length; i++){
+            addGIFToDOM(data.data[i], favCtn);
+        }
+
+    }else{
+
+        console.log('algo')
+        //Mostrar página sin resultados
+
+    }
+
+
+}
+
 let favGifs = JSON.parse(localStorage.getItem("favGIFs"));
 
 if (favGifs === null){
@@ -107,6 +133,7 @@ let searchBar = document.getElementById("search-bar");
 let search = document.getElementById("search-input");
 let seeMore = document.getElementById("see-more");
 let favorites = document.getElementById("favorites");
+let favCtn = document.getElementById("fav-ctn")
 let favoritesBtn = document.getElementById("favorites-btn");
 let createGif = document.getElementById("create");
 let createBtn = document.getElementById("create-gif-btn");
@@ -127,7 +154,7 @@ searchBar.addEventListener("focusout", deSwitch);
 search.addEventListener("keyup", autocomplete);
 cross.addEventListener("mousedown", () => search.value = "");
 glass.addEventListener("mousedown", runSearch);
-favorites.addEventListener("click", displayFavorites);
+// favorites.addEventListener("click", displayFavorites);
 
 createBtn.addEventListener("click", () =>{
     
@@ -160,7 +187,7 @@ favoritesBtn.addEventListener("click", () => {
     trending.classList.remove("hidden-trending")
     favorites.classList.remove("hidden");
     menu.checked = false;
-
+    getFavGIFs();
 });
 
 seeMore.addEventListener("click", () => {
@@ -380,11 +407,11 @@ function addToFavs(){
     localStorage.setItem("favGIFs", favsAsString);
 }
 
-function displayFavorites(){
+// function displayFavorites(){
 
-    favorites.classList.remove("hidden");
-    search.classList.add("hidden");
-    myGifos.classList.add("hidden");
-    intro.classList.add("hidden");
-    createGif.classList.add("hidden");
-}
+//     favorites.classList.remove("hidden");
+//     search.classList.add("hidden");
+//     myGifos.classList.add("hidden");
+//     intro.classList.add("hidden");
+//     createGif.classList.add("hidden");
+// }
