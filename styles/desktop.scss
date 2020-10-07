@@ -328,6 +328,56 @@
             }
         }
 
+        .favorites{
+            .fav-ctn{
+                width: 90%;
+                margin: 1rem;
+                max-width: 1200px;
+            }
+        }
+
+        .gif-card{
+            display: flex;
+            flex-flow: row wrap;
+            position: relative;
+            margin: 1rem 1rem 1rem 1rem;
+        
+            .gif-ctn{
+
+                width: 16.25rem;
+                height: 12.5rem;
+        
+                .gif{
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        
+            .filter{
+                display: none;
+                width: 100%;
+                height: 100%;
+                background-color: $main-violet;
+                opacity: 0.6;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        
+            .gif-btn-ctn{
+                display: none;
+            }
+
+            .gif-title-ctn{
+                display: none;
+            }
+        
+            &:hover{
+                
+                @extend %hover;
+            }
+        }
+
         .search-results{
 
             .search-container{
@@ -337,48 +387,6 @@
 
                 &::before{
                     margin-top: -3rem;
-                }
-
-                .gif-card{
-                    display: flex;
-                    flex-flow: row wrap;
-                    position: relative;
-                    margin: 1rem 1rem 1rem 1rem;
-                
-                    .gif-ctn{
-    
-                        width: 16.25rem;
-                        height: 12.5rem;
-                
-                        .gif{
-                            height: 100%;
-                            width: 100%;
-                        }
-                    }
-                
-                    .filter{
-                        display: none;
-                        width: 100%;
-                        height: 100%;
-                        background-color: $main-violet;
-                        opacity: 0.6;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                    }
-                
-                    .gif-btn-ctn{
-                        display: none;
-                    }
-    
-                    .gif-title-ctn{
-                        display: none;
-                    }
-                
-                    &:hover{
-                        
-                        @extend %hover;
-                    }
                 }
             }
 

@@ -34,9 +34,9 @@ html[data-theme="dark"] {
     color: var(--btn_hover);
     background-color: var(--main_text_color); }
 
-  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .filter, main .search-results .search-container .gif-card:hover .filter {
+  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .filter, main .gif-card:hover .filter {
     display: initial; }
-  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-btn-ctn, main .search-results .search-container .gif-card:hover .gif-btn-ctn {
+  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-btn-ctn, main .gif-card:hover .gif-btn-ctn {
     display: flex;
     flex-flow: row wrap;
     width: max-content;
@@ -47,10 +47,10 @@ html[data-theme="dark"] {
     top: 0;
     right: 0;
     z-index: 10; }
-    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-btn-ctn img, main .search-results .search-container .gif-card:hover .gif-btn-ctn img {
+    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-btn-ctn img, main .gif-card:hover .gif-btn-ctn img {
       width: 2rem;
       margin: 0.2rem; }
-  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn, main .search-results .search-container .gif-card:hover .gif-title-ctn {
+  main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn, main .gif-card:hover .gif-title-ctn {
     display: flex;
     flex-flow: column wrap;
     position: absolute;
@@ -59,11 +59,11 @@ html[data-theme="dark"] {
     margin-left: 1rem;
     margin-bottom: 1rem;
     z-index: 29; }
-    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn .gif-title, main .search-results .search-container .gif-card:hover .gif-title-ctn .gif-title {
+    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn .gif-title, main .gif-card:hover .gif-title-ctn .gif-title {
       color: white;
       font-size: 1rem;
       font-family: "Roboto", "sans-serif"; }
-    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn .gif-author, main .search-results .search-container .gif-card:hover .gif-title-ctn .gif-author {
+    main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card:hover .gif-title-ctn .gif-author, main .gif-card:hover .gif-title-ctn .gif-author {
       font-size: .9rem;
       color: white;
       width: 100%;
@@ -223,36 +223,40 @@ html[data-theme="dark"] {
               display: none; }
             main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card .gif-title-ctn {
               display: none; }
+  main .favorites .fav-ctn {
+    width: 90%;
+    margin: 1rem;
+    max-width: 1200px; }
+  main .gif-card {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    margin: 1rem 1rem 1rem 1rem; }
+    main .gif-card .gif-ctn {
+      width: 16.25rem;
+      height: 12.5rem; }
+      main .gif-card .gif-ctn .gif {
+        height: 100%;
+        width: 100%; }
+    main .gif-card .filter {
+      display: none;
+      width: 100%;
+      height: 100%;
+      background-color: #572EE5;
+      opacity: 0.6;
+      position: absolute;
+      top: 0;
+      left: 0; }
+    main .gif-card .gif-btn-ctn {
+      display: none; }
+    main .gif-card .gif-title-ctn {
+      display: none; }
   main .search-results .search-container {
     width: 90%;
     max-width: 1200px;
     margin: 1rem; }
     main .search-results .search-container::before {
       margin-top: -3rem; }
-    main .search-results .search-container .gif-card {
-      display: flex;
-      flex-flow: row wrap;
-      position: relative;
-      margin: 1rem 1rem 1rem 1rem; }
-      main .search-results .search-container .gif-card .gif-ctn {
-        width: 16.25rem;
-        height: 12.5rem; }
-        main .search-results .search-container .gif-card .gif-ctn .gif {
-          height: 100%;
-          width: 100%; }
-      main .search-results .search-container .gif-card .filter {
-        display: none;
-        width: 100%;
-        height: 100%;
-        background-color: #572EE5;
-        opacity: 0.6;
-        position: absolute;
-        top: 0;
-        left: 0; }
-      main .search-results .search-container .gif-card .gif-btn-ctn {
-        display: none; }
-      main .search-results .search-container .gif-card .gif-title-ctn {
-        display: none; }
   main .create-ctn {
     display: flex;
     flex-flow: column nowrap;

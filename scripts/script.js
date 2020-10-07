@@ -389,9 +389,8 @@ function addGIFToSearch(element){
 
 function addToFavs(){
 
-    let gif = document.getElementById(this.parentNode.parentNode.children[1].children[0].id);
-
-    let found = favGifs.findIndex(giphy => giphy === gif.id)
+    let gif = this.parentNode.parentNode.children[1].children[0];
+    let found = favGifs.findIndex(giphy => giphy === gif.id);
 
     if (found === -1){
         favGifs.push(gif.id);
