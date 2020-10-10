@@ -107,7 +107,20 @@
                     <h2 id="create-title">Aquí podrás <br>crear tus propios <span class="GIFOS">GIFOS</span></h2>
                     <h3 id="create-subtitle">¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</h3>
 
-                    <video id="gif-capture" class="hidden" controls autoplay></video>
+                    <div id="loading" class="hidden">
+
+                        <div class='hidden'>
+                            <img src="/assets/icon-download-hover.svg" alt="download-gifo">
+                            <img src="/assets/icon-link-hover.svg" alt="link-gifo">
+                        </div>
+
+                        <img src="/assets/loader.svg" alt="cargando" class='upload-img'>
+                        <p class='upload-text'>Estamos subiendo tu GIFO</p>
+                    </div>
+
+                    <video id="gif-capture" class="hidden" controls autoplay>
+
+                    </video>
                     <span class="corner-left corner-bottom"></span>
                     <span class="corner-right corner-bottom"></span>
                 </div>

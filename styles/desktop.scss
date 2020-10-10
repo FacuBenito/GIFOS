@@ -9,6 +9,12 @@
     100% {opacity: 1;}
     }
 
+    @keyframes rotation {
+        0% {transform: rotate(0);}
+        50% {transform: rotate(180deg);}
+        100% {transform: rotate(360deg);}
+    }
+
     %hover-btn{
         color: var(--btn_hover);
         background-color: var(--main_text_color);
@@ -389,12 +395,6 @@
                     margin-top: -3rem;
                 }
             }
-
-            button{
-                &:hover{
-                    @extend %hover-btn;
-                }
-            }
             
         }
 
@@ -427,6 +427,53 @@
                 #gif-capture{
                     width: 65%;
                     height: 65%;
+                    position: relative;
+                }
+
+                .loading{
+                    width: 65%;
+                    height: 65%;
+                    background-color: transparentize(#572EE5, .6);
+                    position: absolute;
+                    top: auto;
+                    left: auto;
+                    z-index: 500;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items: center;
+                    justify-content: center;
+
+                    .upload-img{
+                        align-self: center;
+                        margin-bottom: .5rem;
+                        z-index: 501;
+                        opacity: 1;
+                        animation: rotation 2s infinite linear;
+                    }
+
+                    .upload-text{
+                        color: white;
+                        font-family: $title-font;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        z-index: 501;
+                        opacity: 1;
+                    }
+
+                    .create-btn-ctn{
+                        width: max-content;
+                        align-self: flex-end;
+                        justify-self: flex-start;
+                        position: absolute;
+                        top: .4rem;
+                        right: .4rem;
+                        opacity: .8;
+                        img{
+                            cursor: pointer;
+                            width: 2rem;
+                            margin: 0.2rem;
+                        }
+                    }
                 }
 
                 .corner-right, .corner-left {
@@ -557,10 +604,17 @@
                 }
             }
         }
+        .btn{
+            &:hover{
+                @extend %hover-btn;
+            }
+        }
         
         .hidden-trending{
             display: none;
         }
+
+
 
     }
 

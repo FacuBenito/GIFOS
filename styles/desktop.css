@@ -30,7 +30,14 @@ html[data-theme="dark"] {
       opacity: 0; }
     100% {
       opacity: 1; } }
-  header nav ul .li-element:last-child:hover, main .trending .trends-container .desktop-carrousel .btn-container:hover, main .search-results button:hover, main .create-ctn .btn:hover {
+  @keyframes rotation {
+    0% {
+      transform: rotate(0); }
+    50% {
+      transform: rotate(180deg); }
+    100% {
+      transform: rotate(360deg); } }
+  header nav ul .li-element:last-child:hover, main .trending .trends-container .desktop-carrousel .btn-container:hover, main .create-ctn .btn:hover, main .btn:hover {
     color: var(--btn_hover);
     background-color: var(--main_text_color); }
 
@@ -283,7 +290,45 @@ html[data-theme="dark"] {
       position: relative; }
       main .create-ctn .video-ctn #gif-capture {
         width: 65%;
-        height: 65%; }
+        height: 65%;
+        position: relative; }
+      main .create-ctn .video-ctn .loading {
+        width: 65%;
+        height: 65%;
+        background-color: rgba(87, 46, 229, 0.4);
+        position: absolute;
+        top: auto;
+        left: auto;
+        z-index: 500;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center; }
+        main .create-ctn .video-ctn .loading .upload-img {
+          align-self: center;
+          margin-bottom: .5rem;
+          z-index: 501;
+          opacity: 1;
+          animation: rotation 2s infinite linear; }
+        main .create-ctn .video-ctn .loading .upload-text {
+          color: white;
+          font-family: "Montserrat", "sans-serif";
+          font-weight: bold;
+          font-size: 1rem;
+          z-index: 501;
+          opacity: 1; }
+        main .create-ctn .video-ctn .loading .create-btn-ctn {
+          width: max-content;
+          align-self: flex-end;
+          justify-self: flex-start;
+          position: absolute;
+          top: .4rem;
+          right: .4rem;
+          opacity: .8; }
+          main .create-ctn .video-ctn .loading .create-btn-ctn img {
+            cursor: pointer;
+            width: 2rem;
+            margin: 0.2rem; }
       main .create-ctn .video-ctn .corner-right, main .create-ctn .video-ctn .corner-left {
         height: 25px;
         width: 27px;

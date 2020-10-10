@@ -5,7 +5,11 @@ let createTitle = document.getElementById("create-title");
 let crSubTitle = document.getElementById("create-subtitle");
 let counter = document.getElementById("counter");
 let reDoButton = counter.children[0];
-let myGifosArray = JSON.parse(localStorage.getItem("myGifos"));
+let myGifosArray = localStorage.getItem("myGifos");
+let overlay = document.getElementById('loading')
+myGifosArray = JSON.parse(myGifosArray);
+
+console.log(myGifosArray);
 
 if (myGifosArray === null){
 	myGifosArray = [];
@@ -135,6 +139,9 @@ function fourthStage() {
 
 async function fifthStage() {
 
+	overlay.classList.remove('hidden');
+	overlay.classList.add('loading');
+
 	let form = new FormData();
 	form.append('file', gif, 'newGif.gif');
 
@@ -142,10 +149,19 @@ async function fifthStage() {
 		method: 'POST',
 		body: form,
 		json: true
-});
-	let data = await resp.json();
-	console.log(data.data);
+	});
 
+	overlay.children[1].src = 'assets/check.svg';
+	overlay.children[1].style.animation = 'none';
+	
+	overlay.children[2].textContent = 'GIFO subido con éxito';
+
+	overlay.children[0].classList.remove('hidden');
+	overlay.children[0].classList.add('create-btn-ctn');
+
+	let data = await resp.json();
+
+	console.log(myGifosArray)
 	myGifosArray.push(data.data.id);
 
 	localStorage.setItem('myGifos', JSON.stringify(myGifosArray));

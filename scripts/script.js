@@ -26,7 +26,7 @@ async function searchGIF(search){
         searchTitle.textContent = search;
         searchTitle.style.textTransform = "capitalize";
 
-        seeMore.classList.remove("hidden")
+        seeMore.classList.remove("hidden");
     
         for (let i = 0; i < limit; i++)
         {
@@ -98,9 +98,13 @@ async function getFavGIFs(){
 
     let gifArr = favGifs;
 
-    if (gifArr !== null){
+    if (gifArr !== []){
         favCtn.textContent = ""
         gifArr = gifArr.join(',');
+
+        // if (gifArr.length > 12){
+        //     seeMore.classList.remove('hidden');
+        // }
     
         let resp = await fetch(`https://api.giphy.com/v1/gifs?ids=${gifArr}&api_key=${apiKey}`);
         let data = await resp.json();
@@ -113,6 +117,17 @@ async function getFavGIFs(){
     }else{
 
         console.log('algo')
+
+        let img = document.createElement('img');
+        let message = document.createElement('p');
+
+        img.src = '/assets/icon-fav-sin-contenido.svg';
+        message.textContent = '¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!';
+        message.classList.add("message")
+
+        favCtn.appendChild(img);
+        favCtn.appendChild(message);
+        // seeMore.classList.add('hidden');
         //Mostrar página sin resultados
 
     }
