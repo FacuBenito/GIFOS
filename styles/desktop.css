@@ -230,7 +230,7 @@ html[data-theme="dark"] {
               display: none; }
             main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .gif-card .gif-title-ctn {
               display: none; }
-  main .favorites .fav-ctn {
+  main .favorites .fav-ctn, main .my-gifos .fav-ctn, main .my-gifos .my-gifos-ctn {
     width: 90%;
     margin: 1rem;
     max-width: 1200px; }

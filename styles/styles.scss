@@ -422,6 +422,17 @@ main{
         }
     }
 
+    .my-gifos{
+        @extend .favorites;
+        h2{
+            @extend h2;
+        }
+
+        .my-gifos-ctn{
+            @extend .fav-ctn;
+        }
+    }
+
     .gif-card{
         display: flex;
         flex-flow: row wrap;

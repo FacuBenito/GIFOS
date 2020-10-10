@@ -14,6 +14,7 @@ let createGif = document.getElementById("create");
 let createBtn = document.getElementById("create-gif-btn");
 let myGifos = document.getElementById("my-gifos");
 let myGifosBtn = document.getElementById("my-gifos-btn");
+let myGifosCtn = document.getElementById("my-gifos-ctn");
 let dark = document.getElementById("dark-mode");
 let darkBtn = document.getElementById("dark-mode-btn");
 let results = document.getElementById("search-results");
@@ -23,7 +24,8 @@ let trendingTitle = document.getElementById("trend-title-container");
 let trending = document.getElementById("trending");
 let menu = document.getElementById("menu");
 let hiddenSections = document.querySelectorAll("section.could-hide");
-let seeMorePlus = document.getElementById("seeMorePlus")
+let seeMorePlus = document.getElementById("seeMorePlus");
+let seeMore3 = document.getElementById('seeMore3');
 
 async function searchGIF(search){
 
@@ -54,7 +56,7 @@ async function searchGIF(search){
     
         for (let i = 0; i < limit; i++)
         {
-            addGIFToDOM(gifArr[i], searchResultsCtn);
+            addGIFToDOM(gifArr[i], searchResultsCtn, false);
         }
 
     }else{
@@ -85,7 +87,7 @@ async function trendingGIF(){
 
     for (let i = 0; i < info.data.length; i++){
         // addGIFToTrending(info.data[i]);
-        addGIFToDOM(info.data[i], carrousel)
+        addGIFToDOM(info.data[i], carrousel, false);
     }
 }
 
@@ -150,24 +152,59 @@ async function getFavGIFs(){
 
         for (let i = offSet; i < Math.min(limit, gifLen) ; i++){
             console.log(i);
-            addGIFToDOM(data.data[i], favCtn);
+            addGIFToDOM(data.data[i], favCtn, false);
         }
 
     }else{
 
         console.log('algo')
 
-        let img = document.createElement('img');
-        let message = document.createElement('p');
 
-        img.src = '/assets/icon-fav-sin-contenido.svg';
-        message.textContent = '¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!';
-        message.classList.add("message")
-
-        favCtn.appendChild(img);
-        favCtn.appendChild(message);
         // seeMore.classList.add('hidden');
         //Mostrar página sin resultados
+    }
+}
+
+async function getGifs(container, gifArray, deleteable, button){
+
+    let gifArr = gifArray;
+    let gifLen = gifArr.length;
+
+    let limit = seeMorePlusClicks*12;
+    let offSet = limit - 12;
+    button.classList.remove('hidden')
+
+    console.log('gifLen: ', gifLen);
+
+    if (gifLen !== 0){
+
+        gifArr = gifArr.join(',');
+
+        console.log('ahiusduashd');
+        if (container.style.flexFlow === 'column nowrap'){
+            container.style.flexFlow = 'row wrap';
+        }
+
+        if (seeMorePlusClicks === 1){
+            container.textContent = "";
+        }
+
+        if (gifLen < 12 || limit > gifLen ){
+            button.classList.add('hidden')
+        }
+
+        let resp = await fetch(`https://api.giphy.com/v1/gifs?ids=${gifArr}&api_key=${apiKey}`);
+        let data = await resp.json();
+
+        console.log(data.data)
+
+        for (let i = offSet; i < Math.min(limit, gifLen); i++){
+            addGIFToDOM(data.data[i], container, deleteable);
+        }
+
+    }else{
+        //Mostrar coso vacío
+        showEmpty(container);
     }
 }
 
@@ -219,18 +256,39 @@ favoritesBtn.addEventListener("click", () => {
     favorites.classList.remove("hidden");
     menu.checked = false;
     seeMorePlusClicks = 1;
-    getFavGIFs();
+
+    console.log(favCtn)
+
+    getGifs(favCtn, favGifs, false, seeMorePlus);
 });
+
+myGifosBtn.addEventListener('click', () => {
+
+    hiddenSections.forEach(section => section.classList.add('hidden'));
+
+    myGifos.classList.remove('hidden');
+    trending.classList.remove('hidden-trending');
+    menu.checked = false;
+    seeMorePlusClicks = 1;
+
+    getGifs(myGifosCtn, myGifosArray, true, seeMore3);
+})
+
+
+seeMorePlus.addEventListener('click', () => {
+    seeMorePlusClicks = seeMorePlusClicks + 1;
+    getGifs(favCtn, favGifs, false, seeMorePlus);
+})
+
+seeMore3.addEventListener('click', () => {
+    seeMorePlusClicks = seeMorePlusClicks + 1;
+    getGifs(myGifosCtn, myGifosArray, true, seeMore3);
+})
 
 seeMore.addEventListener("click", () => {
     seeMoreClicks = seeMoreClicks + 1;
     searchGIF(search.value);
 });
-
-seeMorePlus.addEventListener('click', () =>{
-    seeMorePlusClicks = seeMorePlusClicks + 1;
-    getFavGIFs();
-})
 
 let gifCardTemplate = document.getElementById("gif-card-template").content.firstElementChild;
 
@@ -257,7 +315,7 @@ function addGIFToTrending(element){
     carrousel.appendChild(gifCtn);
 }
 
-function addGIFToDOM(gif, container){
+function addGIFToDOM(gif, container, gifsAreDeleteable){
 
     let gifClone = gifCardTemplate.cloneNode(true);
     let gifCtn = gifClone.children[1];
@@ -288,6 +346,15 @@ function addGIFToDOM(gif, container){
     let downloadBtn = gifClone.children[2].children[1];
     let expandBtn = gifClone.children[2].children[2];
 
+    if (gifsAreDeleteable){
+        favBtn.src = '/assets/icon-trash-hover.svg';
+        favBtn.removeEventListener('click', addToFavs);
+        favBtn.addEventListener('click', removeGifo);
+    }else{
+        favBtn.removeEventListener('click', removeGifo);
+        favBtn.addEventListener("click", addToFavs);
+    }
+
     favBtn.style.cursor = "pointer";
     downloadBtn.style.cursor = "pointer";
     expandBtn.style.cursor = "pointer";
@@ -298,8 +365,6 @@ function addGIFToDOM(gif, container){
         favBtn.src = "assets/icon-fav-active.svg"
         favBtn.classList.add("fav-btn-active")
     }
-
-    favBtn.addEventListener("click", addToFavs);
 
     container.appendChild(gifClone);
 }
@@ -441,6 +506,44 @@ function addToFavs(){
 
     let favsAsString = JSON.stringify(favGifs);
     localStorage.setItem("favGIFs", favsAsString);
+}
+
+function removeGifo() {
+
+    let gif = this.parentNode.parentNode.children[1].children[0];
+    let found = myGifosArray.findIndex(giphy => giphy === gif.id);
+
+    if (found !== -1){
+        myGifosArray.splice(found, 1);
+    }
+    console.log(myGifosArray);
+    localStorage.setItem('myGifos', JSON.stringify(myGifosArray));
+
+}
+
+function showEmpty(container){
+    container.textContent = '';
+
+    let img = document.createElement('img');
+    let message = document.createElement('p');
+    container.style.flexFlow = 'column nowrap';
+
+    if (container === ''){
+        img.src = '/assets/icon-fav-sin-contenido.svg';
+        message.textContent = '¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!';
+        seeMorePlus.classList.add('hidden');
+        
+    }else{
+        img.src = '/assets/icon-mis-gifos-sin-contenido.svg';
+        message.textContent = '¡Anímate a crear tu primer GIFO!';   
+        container.classList.add('column')     
+        seeMore3.classList.add('hidden');
+    }
+
+    message.classList.add("message")
+
+    container.appendChild(img);
+    container.appendChild(message);
 }
 
 // function displayFavorites(){
