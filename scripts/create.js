@@ -7,6 +7,7 @@ let counter = document.getElementById("counter");
 let reDoButton = counter.children[0];
 let myGifosArray = localStorage.getItem("myGifos");
 let overlay = document.getElementById('loading')
+let stageCont = 0;
 myGifosArray = JSON.parse(myGifosArray);
 
 console.log(myGifosArray);
@@ -19,7 +20,7 @@ let recorder;
 let gif;
 
 startBtn.addEventListener("click", recordProcess);
-let stageCont = 0;
+console.log(stageCont);
 
 function recordProcess(){
 
@@ -69,7 +70,6 @@ function firstStage(){
 
 // errorCallback
 	function(err) {
-		alert("Debes dar permiso para grabar");
 		console.log("Ocurrió el siguiente error: " + err);
 		stageCont = 0;
 
@@ -153,7 +153,7 @@ async function fifthStage() {
 
 	overlay.children[1].src = 'assets/check.svg';
 	overlay.children[1].style.animation = 'none';
-	
+
 	overlay.children[2].textContent = 'GIFO subido con éxito';
 
 	overlay.children[0].classList.remove('hidden');

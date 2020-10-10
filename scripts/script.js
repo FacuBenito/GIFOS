@@ -1,5 +1,29 @@
 const apiKey = "QTKPx19XqTa8x4Oc7I17ZjFkMoJoW1MM";
 let seeMoreClicks = 1;
+let seeMorePlusClicks = 1;
+let searchCtn = document.getElementById("search-ctn");
+let cross = document.getElementById("cross");
+let glass = document.getElementById("search-icon");
+let searchBar = document.getElementById("search-bar");
+let search = document.getElementById("search-input");
+let seeMore = document.getElementById("see-more");
+let favorites = document.getElementById("favorites");
+let favCtn = document.getElementById("fav-ctn")
+let favoritesBtn = document.getElementById("favorites-btn");
+let createGif = document.getElementById("create");
+let createBtn = document.getElementById("create-gif-btn");
+let myGifos = document.getElementById("my-gifos");
+let myGifosBtn = document.getElementById("my-gifos-btn");
+let dark = document.getElementById("dark-mode");
+let darkBtn = document.getElementById("dark-mode-btn");
+let results = document.getElementById("search-results");
+let intro = document.getElementById("intro");
+let home = document.getElementById("home");
+let trendingTitle = document.getElementById("trend-title-container");
+let trending = document.getElementById("trending");
+let menu = document.getElementById("menu");
+let hiddenSections = document.querySelectorAll("section.could-hide");
+let seeMorePlus = document.getElementById("seeMorePlus")
 
 async function searchGIF(search){
 
@@ -98,19 +122,34 @@ async function getFavGIFs(){
 
     let gifArr = favGifs;
 
-    if (gifArr !== []){
-        favCtn.textContent = ""
-        gifArr = gifArr.join(',');
+    let limit = seeMorePlusClicks*12;
+    let offSet = limit - 12;
+    seeMorePlus.classList.remove('hidden');
 
-        // if (gifArr.length > 12){
-        //     seeMore.classList.remove('hidden');
-        // }
+    if (gifArr !== []){
+
+        if (seeMorePlusClicks === 1){
+            favCtn.textContent = ""
+        }
+
+        gifLen = gifArr.length;
+        console.log(gifLen, offSet, limit);
+
+        if (limit > gifLen){
+            seeMorePlus.classList.add('hidden');
+        }
+
+        gifArr = gifArr.join(',');
+        
+        if (gifLen < 12){
+            seeMorePlus.classList.add('hidden');
+        }
     
         let resp = await fetch(`https://api.giphy.com/v1/gifs?ids=${gifArr}&api_key=${apiKey}`);
         let data = await resp.json();
-        console.log(data.data);
 
-        for (let i = 0; i < data.data.length; i++){
+        for (let i = offSet; i < Math.min(limit, gifLen) ; i++){
+            console.log(i);
             addGIFToDOM(data.data[i], favCtn);
         }
 
@@ -129,10 +168,7 @@ async function getFavGIFs(){
         favCtn.appendChild(message);
         // seeMore.classList.add('hidden');
         //Mostrar página sin resultados
-
     }
-
-
 }
 
 let favGifs = JSON.parse(localStorage.getItem("favGIFs"));
@@ -141,28 +177,6 @@ if (favGifs === null){
     favGifs = [];
 }
 
-let searchCtn = document.getElementById("search-ctn");
-let cross = document.getElementById("cross");
-let glass = document.getElementById("search-icon");
-let searchBar = document.getElementById("search-bar");
-let search = document.getElementById("search-input");
-let seeMore = document.getElementById("see-more");
-let favorites = document.getElementById("favorites");
-let favCtn = document.getElementById("fav-ctn")
-let favoritesBtn = document.getElementById("favorites-btn");
-let createGif = document.getElementById("create");
-let createBtn = document.getElementById("create-gif-btn");
-let myGifos = document.getElementById("my-gifos");
-let myGifosBtn = document.getElementById("my-gifos-btn");
-let dark = document.getElementById("dark-mode");
-let darkBtn = document.getElementById("dark-mode-btn");
-let results = document.getElementById("search-results");
-let intro = document.getElementById("intro");
-let home = document.getElementById("home");
-let trendingTitle = document.getElementById("trend-title-container");
-let trending = document.getElementById("trending");
-let menu = document.getElementById("menu");
-let hiddenSections = document.querySelectorAll("section.could-hide");
 
 searchBar.addEventListener("focusin", searchSwitch);
 searchBar.addEventListener("focusout", deSwitch);
@@ -176,6 +190,8 @@ createBtn.addEventListener("click", () =>{
     hiddenSections.forEach(section => section.classList.add("hidden"));
     createGif.classList.remove("hidden");
     trending.classList.add("hidden-trending");
+    // stageCont = 0;
+    console.log(stageCont);
 });
 
 search.addEventListener("keyup", (e) =>{
@@ -202,6 +218,7 @@ favoritesBtn.addEventListener("click", () => {
     trending.classList.remove("hidden-trending")
     favorites.classList.remove("hidden");
     menu.checked = false;
+    seeMorePlusClicks = 1;
     getFavGIFs();
 });
 
@@ -209,6 +226,11 @@ seeMore.addEventListener("click", () => {
     seeMoreClicks = seeMoreClicks + 1;
     searchGIF(search.value);
 });
+
+seeMorePlus.addEventListener('click', () =>{
+    seeMorePlusClicks = seeMorePlusClicks + 1;
+    getFavGIFs();
+})
 
 let gifCardTemplate = document.getElementById("gif-card-template").content.firstElementChild;
 
