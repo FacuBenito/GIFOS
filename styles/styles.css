@@ -48,7 +48,8 @@ button {
   font-size: 1.2rem;
   font-weight: bold;
   align-self: center;
-  justify-self: center; }
+  justify-self: center;
+  text-align: center; }
 
 body {
   background-color: var(--background); }

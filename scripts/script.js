@@ -525,8 +525,9 @@ function showEmpty(container){
     let img = document.createElement('img');
     let message = document.createElement('p');
     container.style.flexFlow = 'column nowrap';
-
-    if (container.id === 'my-gifos-ctn'){
+    container.style.marginTop = '1rem';
+    
+    if (container.id !== 'my-gifos-ctn'){
         img.src = 'assets/icon-fav-sin-contenido.svg';
         message.textContent = '¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!';
         seeMorePlus.classList.add('hidden');
