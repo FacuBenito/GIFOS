@@ -174,13 +174,11 @@ async function getGifs(container, gifArray, deleteable, button){
     let offSet = limit - 12;
     button.classList.remove('hidden')
 
-    console.log('gifLen: ', gifLen);
 
     if (gifLen !== 0){
 
         gifArr = gifArr.join(',');
 
-        console.log('ahiusduashd');
         if (container.style.flexFlow === 'column nowrap'){
             container.style.flexFlow = 'row wrap';
         }
@@ -347,7 +345,7 @@ function addGIFToDOM(gif, container, gifsAreDeleteable){
     let expandBtn = gifClone.children[2].children[2];
 
     if (gifsAreDeleteable){
-        favBtn.src = '/assets/icon-trash-hover.svg';
+        favBtn.src = 'assets/icon-trash-hover.svg';
         favBtn.removeEventListener('click', addToFavs);
         favBtn.addEventListener('click', removeGifo);
     }else{
@@ -528,13 +526,13 @@ function showEmpty(container){
     let message = document.createElement('p');
     container.style.flexFlow = 'column nowrap';
 
-    if (container === ''){
-        img.src = '/assets/icon-fav-sin-contenido.svg';
+    if (container.id === 'my-gifos-ctn'){
+        img.src = 'assets/icon-fav-sin-contenido.svg';
         message.textContent = '¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!';
         seeMorePlus.classList.add('hidden');
         
     }else{
-        img.src = '/assets/icon-mis-gifos-sin-contenido.svg';
+        img.src = 'assets/icon-mis-gifos-sin-contenido.svg';
         message.textContent = '¡Anímate a crear tu primer GIFO!';   
         container.classList.add('column')     
         seeMore3.classList.add('hidden');
