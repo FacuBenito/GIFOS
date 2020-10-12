@@ -157,8 +157,6 @@ async function fifthStage() {
 	overlay.children[0].classList.add('create-btn-ctn');
 
 	let data = await resp.json();
-
-	console.log(myGifosArray)
 	myGifosArray.push(data.data.id);
 
 	localStorage.setItem('myGifos', JSON.stringify(myGifosArray));

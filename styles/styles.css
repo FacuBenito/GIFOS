@@ -261,7 +261,9 @@ main {
           display: none; }
       main .trending .trends-container .carrousel-container {
         overflow: scroll;
-        scrollbar-width: 0; }
+        scrollbar-width: 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none; }
         main .trending .trends-container .carrousel-container::-webkit-scrollbar {
           display: none; }
         main .trending .trends-container .carrousel-container .carrousel {
