@@ -262,10 +262,17 @@ main {
       main .trending .trends-container .carrousel-container {
         overflow: scroll;
         scrollbar-width: 0;
-        -ms-overflow-style: none;
-        scrollbar-width: none; }
+        /* Track */
+        /* Handle */ }
         main .trending .trends-container .carrousel-container::-webkit-scrollbar {
-          display: none; }
+          height: 2px;
+          width: 0; }
+        main .trending .trends-container .carrousel-container::-webkit-scrollbar-track {
+          border-radius: 10px; }
+        main .trending .trends-container .carrousel-container::-webkit-scrollbar-thumb {
+          background: var(--main_text_color);
+          border-radius: 10px;
+          width: 10px; }
         main .trending .trends-container .carrousel-container .carrousel {
           width: max-content;
           display: flex;

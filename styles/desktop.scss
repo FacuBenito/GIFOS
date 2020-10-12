@@ -2,6 +2,23 @@
 @import "mixins.scss";
 
 @media screen and (min-width: 1024px){
+
+    body{
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+          
+          /* Track */
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+        }
+           
+          /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: var(--main_text_color); 
+            border-radius: 10px;
+        }
+    }
       
     @keyframes blinking {
     0% {opacity: 1;}
@@ -153,6 +170,7 @@
     }
 
     main{
+        
         
         .intro{
             margin-bottom: 5rem;

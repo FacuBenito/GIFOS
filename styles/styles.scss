@@ -339,11 +339,22 @@ main{
                 overflow: scroll;
                 scrollbar-width: 0;
 
-                &::-webkit-scrollbar{
-                    display: none;
+                &::-webkit-scrollbar {
+                    height: 2px;
+                    width: 0;
                 }
-                -ms-overflow-style: none;  
-                scrollbar-width: none;
+                  
+                  /* Track */
+                &::-webkit-scrollbar-track {
+                    border-radius: 10px;
+                }
+                   
+                  /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background: var(--main_text_color); 
+                    border-radius: 10px;
+                    width: 10px;
+                }
 
                 .carrousel{
                     width: max-content;

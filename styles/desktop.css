@@ -23,6 +23,17 @@ html[data-theme="dark"] {
   --li_hover: #5ED7C6 ; }
 
 @media screen and (min-width: 1024px) {
+  body {
+    /* Track */
+    /* Handle */ }
+    body::-webkit-scrollbar {
+      width: 5px; }
+    body::-webkit-scrollbar-track {
+      border-radius: 10px; }
+    body::-webkit-scrollbar-thumb {
+      background: var(--main_text_color);
+      border-radius: 10px; }
+
   @keyframes blinking {
     0% {
       opacity: 1; }
