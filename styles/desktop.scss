@@ -226,7 +226,10 @@
                 .desktop-carrousel{
                     display: flex;
                     flex-flow: row wrap;
-
+                    position: relative;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
                     .btn-container{
 
                         display: flex;
@@ -238,7 +241,6 @@
                         align-content: center;
                         justify-content: center;
                         margin-top: 3.3125rem;
-                        
                         .carrousel-btn{
                             display: flex;
                             background-color: transparent;
@@ -246,6 +248,7 @@
     
                         .left{
                             justify-self: flex-start;
+
                         }
     
                         .right{
@@ -262,19 +265,21 @@
                     .carrousel-container{
                         display: flex;
                         flex-flow: row nowrap;
-    
+                        width: 80%;
+                        align-self: center;
+                        overflow: hidden;
                         &::-webkit-scrollbar{
                             display: none;
                         }
     
                         .carrousel{
                             
-                            width: max-content;
                             margin-top: 3.3125rem;
-                            width: 90%;
+                            // width: 90%;
+                            width: auto;
                             display: flex;
                             flex-flow: row nowrap;
-        
+                            // transform: translateX(200px);
                             .trend-gif-container{
         
                                 display: flex;

@@ -171,7 +171,11 @@ html[data-theme="dark"] {
       display: none; }
     main .trending .trends-container .desktop-carrousel {
       display: flex;
-      flex-flow: row wrap; }
+      flex-flow: row wrap;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; }
       main .trending .trends-container .desktop-carrousel .btn-container {
         display: flex;
         flex-flow: row wrap;
@@ -191,13 +195,15 @@ html[data-theme="dark"] {
           justify-self: flex-end; }
       main .trending .trends-container .desktop-carrousel .carrousel-container {
         display: flex;
-        flex-flow: row nowrap; }
+        flex-flow: row nowrap;
+        width: 80%;
+        align-self: center;
+        overflow: hidden; }
         main .trending .trends-container .desktop-carrousel .carrousel-container::-webkit-scrollbar {
           display: none; }
         main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel {
-          width: max-content;
           margin-top: 3.3125rem;
-          width: 90%;
+          width: auto;
           display: flex;
           flex-flow: row nowrap; }
           main .trending .trends-container .desktop-carrousel .carrousel-container .carrousel .trend-gif-container {

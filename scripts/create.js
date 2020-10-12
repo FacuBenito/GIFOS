@@ -10,8 +10,6 @@ let overlay = document.getElementById('loading')
 let stageCont = 0;
 myGifosArray = JSON.parse(myGifosArray);
 
-console.log(myGifosArray);
-
 if (myGifosArray === null){
 	myGifosArray = [];
 }
@@ -20,7 +18,6 @@ let recorder;
 let gif;
 
 startBtn.addEventListener("click", recordProcess);
-console.log(stageCont);
 
 function recordProcess(){
 
@@ -151,7 +148,7 @@ async function fifthStage() {
 		json: true
 	});
 
-	overlay.children[1].src = 'assets/check.svg';
+	overlay.children[1].src = './assets/check.svg';
 	overlay.children[1].style.animation = 'none';
 
 	overlay.children[2].textContent = 'GIFO subido con éxito';

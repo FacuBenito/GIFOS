@@ -26,6 +26,9 @@ let menu = document.getElementById("menu");
 let hiddenSections = document.querySelectorAll("section.could-hide");
 let seeMorePlus = document.getElementById("seeMorePlus");
 let seeMore3 = document.getElementById('seeMore3');
+let rightBtn = document.getElementById('carrousel-right');
+let leftBtn = document.getElementById('carrousel-left');
+let carrousel = document.getElementById('carrousel')
 
 async function searchGIF(search){
 
@@ -81,7 +84,7 @@ async function searchGIF(search){
 async function trendingGIF(){
 
     //Hago el fetch hacia la API de giphy y espero la respuesta de la promesa.
-    let resp = await fetch(`https://api.giphy.com/v1/gifs/trending?&api_key=${apiKey}&limit=3`);
+    let resp = await fetch(`https://api.giphy.com/v1/gifs/trending?&api_key=${apiKey}&limit=15`);
     let info = await resp.json();
     let carrousel = document.getElementById("carrousel");
 
@@ -239,7 +242,7 @@ home.addEventListener("click", () => {
 
     hiddenSections.forEach(section => section.classList.add("hidden"));
     
-    trending.classList.remove("hidden-trending")
+    trending.classList.remove("hidden-trending");
     intro.classList.remove("hidden");
     trendingTitle.classList.remove("hidden");
     search.value = "";
@@ -287,6 +290,21 @@ seeMore.addEventListener("click", () => {
     seeMoreClicks = seeMoreClicks + 1;
     searchGIF(search.value);
 });
+
+let moveAmount = 0;
+
+rightBtn.addEventListener('click', () =>{
+    const ctnWidth = carrousel.parentElement.offsetWidth;
+    let maxMovement = carrousel.offsetWidth;
+
+    moveAmount = (moveAmount > -(maxMovement - ctnWidth - 180)) ? moveAmount - 180 : -(maxMovement - ctnWidth)
+    carrousel.style.transform = `translateX(${moveAmount}px)`;
+});
+
+leftBtn.addEventListener('click', () => {
+    moveAmount = (moveAmount < -180) ? moveAmount + 180 : 0;
+    carrousel.style.transform = `translateX(${moveAmount}px)`
+})
 
 let gifCardTemplate = document.getElementById("gif-card-template").content.firstElementChild;
 
