@@ -211,6 +211,19 @@ async function getGifs(container, gifArray, deleteable, button){
     }
 }
 
+async function downloadAction(e) {
+    e.preventDefault()
+        let a = document.createElement('a');
+        console.log('hoasdjh')
+        let response = await fetch(`https://media2.giphy.com/media/${this.id}/giphy.gif?${apiKey}&rid=giphy.gif`);
+        let file = await response.blob();
+        a.download = `${this.classList[0]}`;
+        a.href = window.URL.createObjectURL(file);
+        a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+
+        a.click()
+}
+
 let favGifs = JSON.parse(localStorage.getItem("favGIFs"));
 
 if (favGifs === null){
@@ -379,13 +392,14 @@ function addGIFToDOM(gif, container, gifsAreDeleteable){
     downloadBtn.style.cursor = "pointer";
     expandBtn.style.cursor = "pointer";
 
-    expandBtn.addEventListener('mousedown', fullscreenView)
+    expandBtn.addEventListener('mousedown', fullscreenView);
+    downloadBtn.addEventListener('mousedown', downloadAction);
 
-    let onFavs = favGifs.find(giphy => giphy === gif.id)
+    let onFavs = favGifs.find(giphy => giphy === gif.id);
 
     if (onFavs !== undefined){
-        favBtn.src = "assets/icon-fav-active.svg"
-        favBtn.classList.add("fav-btn-active")
+        favBtn.src = "assets/icon-fav-active.svg";
+        favBtn.classList.add("fav-btn-active");
     }
 
     container.appendChild(gifClone);
@@ -514,7 +528,7 @@ function addGIFToSearch(element){
 function addToFavs(btn){
 
     let gif;
-    console.log(btn.id)
+
     if (btn.id === 'fav'){
         gif = btn.parentNode.parentNode.children[1].children[0];
     }else{
@@ -524,12 +538,10 @@ function addToFavs(btn){
     let found = favGifs.findIndex(giphy => giphy === gif.id);
 
     if (found === -1){
-        console.log('Pusheando')
         favGifs.push(gif.id);
         btn.src = "assets/icon-fav-active.svg";
         btn.classList.add("fav-btn-active");
     }else{
-        console.log('Ya lo tengo');
         btn.src = "assets/icon-fav-hover.svg";
         btn.classList.remove("fav-btn-active");
         favGifs.splice(found, 1);
@@ -632,7 +644,6 @@ function fullscreenView(e) {
             btnCtn.remove();
         })
     }
-
 
 }
 

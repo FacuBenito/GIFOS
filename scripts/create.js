@@ -8,6 +8,8 @@ let reDoButton = counter.children[0];
 let myGifosArray = localStorage.getItem("myGifos");
 let overlay = document.getElementById('loading')
 let stageCont = 0;
+let downloadGifo = document.getElementById('download-gifo');
+let copyLink = document.getElementById('copy-link')
 myGifosArray = JSON.parse(myGifosArray);
 
 if (myGifosArray === null){
@@ -16,10 +18,13 @@ if (myGifosArray === null){
 
 let recorder;
 let gif;
-
+let gifDownload = null;
 let timerSet;
+let link = null;
 
 startBtn.addEventListener("click", recordProcess);
+downloadGifo.addEventListener('mousedown', downloadActionCreate);
+copyLink.addEventListener('mousedown', () => copyURLAction(link));
 
 let s = 0;
 let stoppedFlag = false;
@@ -142,6 +147,7 @@ function fourthStage() {
 	recorder.stopRecording(onStop);
 	
 	gif = recorder.getBlob();
+	gifDownload = gif;
 
 	startBtn.textContent = "SUBIR GIFO";
 	reDoButton.textContent = "REPETIR CAPTURA";
@@ -186,6 +192,8 @@ async function fifthStage() {
 	let data = await resp.json();
 	myGifosArray.push(data.data.id);
 
+	link = data.data.id;
+
 	localStorage.setItem('myGifos', JSON.stringify(myGifosArray));
 
 	counter.classList.add("hidden");
@@ -199,4 +207,22 @@ function onStop() {
 	//Generar el archivo para subir
 	stoppedFlag = true;
 	console.log('Supercalifragilisticuespialidoso')
+}
+
+function downloadActionCreate() {
+			let a = document.createElement('a');
+			console.log('hoasdjh2');
+			let file = gifDownload;
+			a.download = `${this.classList[0]}`;
+			a.href = window.URL.createObjectURL(file);
+			a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+
+			a.click()
+}
+
+async function copyURLAction(gifoid) {
+
+  navigator.clipboard.writeText(`https://media2.giphy.com/media/${gifoid}/giphy.gif?${apiKey}&rid=giphy.gif`).then(
+    console.log("success"))
+    .catch(err => console.log(err))
 }
