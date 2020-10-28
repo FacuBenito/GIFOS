@@ -288,7 +288,8 @@ html[data-theme="dark"] {
     flex-flow: column nowrap;
     align-items: center;
     position: relative;
-    height: 80vh; }
+    height: 80vh;
+    margin-top: 5rem; }
     main .create-ctn .camara-ctn {
       position: absolute;
       top: 100px;
