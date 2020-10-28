@@ -362,7 +362,6 @@ main {
     main .expanded .expanded-gif {
       width: 100%;
       height: auto;
-      margin: auto;
       z-index: 1001;
       align-self: center;
       justify-self: center; }
