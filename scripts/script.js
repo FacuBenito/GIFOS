@@ -28,7 +28,8 @@ let seeMorePlus = document.getElementById("seeMorePlus");
 let seeMore3 = document.getElementById('seeMore3');
 let rightBtn = document.getElementById('carrousel-right');
 let leftBtn = document.getElementById('carrousel-left');
-let carrousel = document.getElementById('carrousel')
+let carrousel = document.getElementById('carrousel');
+let expanded = document.getElementById('expanded');
 
 async function searchGIF(search){
 
@@ -138,7 +139,6 @@ async function getFavGIFs(){
         }
 
         gifLen = gifArr.length;
-        console.log(gifLen, offSet, limit);
 
         if (limit > gifLen){
             seeMorePlus.classList.add('hidden');
@@ -152,6 +152,8 @@ async function getFavGIFs(){
     
         let resp = await fetch(`https://api.giphy.com/v1/gifs?ids=${gifArr}&api_key=${apiKey}`);
         let data = await resp.json();
+
+
 
         for (let i = offSet; i < Math.min(limit, gifLen) ; i++){
             console.log(i);
@@ -176,8 +178,7 @@ async function getGifs(container, gifArray, deleteable, button){
     let limit = seeMorePlusClicks*12;
     let offSet = limit - 12;
     button.classList.remove('hidden')
-
-
+    console.log(gifArr);
     if (gifLen !== 0){
 
         gifArr = gifArr.join(',');
@@ -190,16 +191,17 @@ async function getGifs(container, gifArray, deleteable, button){
             container.textContent = "";
         }
 
-        if (gifLen < 12 || limit > gifLen ){
+        if (gifLen < 12*seeMorePlusClicks || limit > gifLen ){
             button.classList.add('hidden')
         }
 
         let resp = await fetch(`https://api.giphy.com/v1/gifs?ids=${gifArr}&api_key=${apiKey}`);
         let data = await resp.json();
 
-        console.log(data.data)
+        console.log(offSet, limit, data.data.length);
 
-        for (let i = offSet; i < Math.min(limit, gifLen); i++){
+
+        for (let i = offSet; i < Math.min(limit, gifLen); i++) {
             addGIFToDOM(data.data[i], container, deleteable);
         }
 
@@ -340,6 +342,8 @@ function addGIFToDOM(gif, container, gifsAreDeleteable){
 
     let trueGif = gifCtn.children[0];
 
+    trueGif.addEventListener('mousedown', fullscreenView);
+
     trueGif.src = gif.images.fixed_height.url; 
     trueGif.classList.add("gif");
 
@@ -364,16 +368,18 @@ function addGIFToDOM(gif, container, gifsAreDeleteable){
 
     if (gifsAreDeleteable){
         favBtn.src = 'assets/icon-trash-hover.svg';
-        favBtn.removeEventListener('click', addToFavs);
+        favBtn.removeEventListener('click', () => addToFavs(favBtn));
         favBtn.addEventListener('click', removeGifo);
     }else{
         favBtn.removeEventListener('click', removeGifo);
-        favBtn.addEventListener("click", addToFavs);
+        favBtn.addEventListener("click", () => addToFavs(favBtn));
     }
 
     favBtn.style.cursor = "pointer";
     downloadBtn.style.cursor = "pointer";
     expandBtn.style.cursor = "pointer";
+
+    expandBtn.addEventListener('mousedown', fullscreenView)
 
     let onFavs = favGifs.find(giphy => giphy === gif.id)
 
@@ -505,21 +511,29 @@ function addGIFToSearch(element){
     searchResultsCtn.appendChild(gifCtn)
 }
 
-function addToFavs(){
+function addToFavs(btn){
 
-    let gif = this.parentNode.parentNode.children[1].children[0];
+    let gif;
+    console.log(btn.id)
+    if (btn.id === 'fav'){
+        gif = btn.parentNode.parentNode.children[1].children[0];
+    }else{
+        gif = btn.parentNode.parentNode.children[1];
+        gif.id = btn.id
+    }
     let found = favGifs.findIndex(giphy => giphy === gif.id);
 
     if (found === -1){
+        console.log('Pusheando')
         favGifs.push(gif.id);
-        this.src = "assets/icon-fav-active.svg";
-        this.classList.add("fav-btn-active");
+        btn.src = "assets/icon-fav-active.svg";
+        btn.classList.add("fav-btn-active");
     }else{
-        this.src = "assets/icon-fav-hover.svg";
-        this.classList.remove("fav-btn-active");
+        console.log('Ya lo tengo');
+        btn.src = "assets/icon-fav-hover.svg";
+        btn.classList.remove("fav-btn-active");
         favGifs.splice(found, 1);
     }
-
     let favsAsString = JSON.stringify(favGifs);
     localStorage.setItem("favGIFs", favsAsString);
 }
@@ -561,6 +575,65 @@ function showEmpty(container){
 
     container.appendChild(img);
     container.appendChild(message);
+}
+
+function fullscreenView(e) {
+    
+    if(expanded.classList.contains('hidden')){
+
+        expanded.classList.remove('hidden');
+
+        let xGif = document.createElement('img');
+        let underBar = document.createElement('div');
+
+        let gifInfo = e.target.parentElement.parentElement.children[0]
+        let fav = e.target.parentElement.parentElement.children[2].children[0];
+        let dwnl = e.target.parentElement.parentElement.children[2].children[1];
+        let hideExpand = document.getElementById('close-btn-expanded');
+
+        if(e.target.id !== 'zoom-in'){
+            xGif.src = e.target.src;
+            xGif.id = e.target.id;
+        }else{
+            xGif.src = e.target.parentElement.parentElement.children[1].children[0].src;
+            xGif.id = e.target.parentElement.parentElement.children[1].children[0].id;
+            xGif.style.width = "40%";
+        }
+
+        xGif.classList.add('expanded-gif');
+
+        let xInfo = gifInfo.cloneNode(true);
+        let xFav = fav.cloneNode(true);
+        let xDwnl = dwnl.cloneNode(true);
+        
+        xInfo.style.display='flex';
+        xInfo.classList.add('info-expanded')
+
+        let btnCtn = document.createElement('div');
+        btnCtn.classList.add('btn-ctn-expanded');
+
+        btnCtn.appendChild(xFav);
+        btnCtn.appendChild(xDwnl);
+        xFav.id = xGif.id
+        xFav.addEventListener('mousedown', () => addToFavs(xFav));
+
+        underBar.classList.add('underbar-expanded');
+
+        underBar.append(xInfo);
+        underBar.append(btnCtn)
+
+        expanded.appendChild(xGif);
+        expanded.appendChild(underBar);
+
+        hideExpand.addEventListener('mousedown', () => {
+            expanded.classList.add('hidden');
+            xGif.remove();
+            xInfo.remove();
+            btnCtn.remove();
+        })
+    }
+
+
 }
 
 // function displayFavorites(){

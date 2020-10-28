@@ -17,7 +17,27 @@ if (myGifosArray === null){
 let recorder;
 let gif;
 
+let timerSet;
+
 startBtn.addEventListener("click", recordProcess);
+
+let s = 0;
+let stoppedFlag = false;
+
+function setTimer() {
+	reDoButton.classList.remove('hidden');
+	counter.classList.remove('hidden');
+	if (stoppedFlag == true) {
+		clearInterval(timerSet);
+		s = 0;
+	}
+	else {
+		let timeValue = new Date(s * 1000).toISOString().substr(11, 8);
+
+		reDoButton.textContent = timeValue;
+		s++;
+	}
+};
 
 function recordProcess(){
 
@@ -77,6 +97,8 @@ function secondStage(){
 
 	video.classList.remove("hidden");
 	startBtn.classList.remove("hidden");
+	// reDoButton.textContent = "00:00:00"
+	// reDoButton.classList.add('hidden')
 	startBtn.textContent = "GRABAR";
 	createTitle.classList.add("hidden");
 	crSubTitle.classList.add("hidden");
@@ -102,11 +124,14 @@ function thirdStage(){
 			}
 		});
 		recorder.startRecording();
+		stoppedFlag = false;
+		timerSet = setInterval(setTimer, 1000);
 	});
 	
 	counter.classList.add("counter");
 	counter.classList.remove("hidden");
-	reDoButton.textContent	 = "00:00:00"
+	reDoButton.classList.remove('hidden');
+	// reDoButton.textContent	 = "00:00:00"
 	startBtn.textContent = "FINALIZAR";
 	stageCont++;
 }
@@ -127,6 +152,8 @@ function fourthStage() {
 		reDoButton.classList.remove('special-hover');
 		counter.classList.add("hidden");
 		reDoButton.textContent = '';
+		timerSet = 0;
+		stoppedFlag = true;
 		recordProcess();
 	})
 
@@ -170,5 +197,6 @@ async function fifthStage() {
 
 function onStop() {
 	//Generar el archivo para subir
+	stoppedFlag = true;
 	console.log('Supercalifragilisticuespialidoso')
 }

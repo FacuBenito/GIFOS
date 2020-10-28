@@ -8,7 +8,8 @@ html[data-theme="light"] {
   --fancy_border: #572EE5;
   --btn_color: #572EE5;
   --btn_hover: white;
-  --li_hover: #50E3C2 ; }
+  --li_hover: #50E3C2 ;
+  --bg-max-view: rgba(255,255,255,0.90); }
 
 html[data-theme="dark"] {
   --background: #37383C;
@@ -20,7 +21,8 @@ html[data-theme="dark"] {
   --fancy_border: #FFF;
   --btn_color: #000000;
   --btn_hover: black;
-  --li_hover: #5ED7C6 ; }
+  --li_hover: #5ED7C6 ;
+  --bg-max-view: rgba(55,56,60,0.90); }
 
 * {
   box-sizing: border-box;
@@ -337,6 +339,55 @@ main {
       main .gif-card .gif-ctn .gif {
         height: 100%;
         width: 100%; }
+  main .expanded {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--bg-max-view);
+    padding: 5rem 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center; }
+    main .expanded i {
+      align-content: center;
+      position: absolute;
+      right: 1rem;
+      cursor: pointer;
+      color: var(--main_text_color);
+      justify-self: flex-end;
+      margin-bottom: 4.75rem; }
+    main .expanded .expanded-gif {
+      width: 100%;
+      height: auto;
+      margin: auto;
+      z-index: 1001;
+      align-self: center;
+      justify-self: center; }
+  main .underbar-expanded {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%; }
+  main .info-expanded {
+    display: flex;
+    flex-flow: column wrap;
+    z-index: 29;
+    width: 50%; }
+    main .info-expanded .gif-title {
+      color: var(--small_text_color);
+      font-size: 1rem;
+      font-family: "Roboto", "sans-serif"; }
+    main .info-expanded .gif-author {
+      font-size: .9rem;
+      color: var(--small_text_color);
+      width: 100%;
+      opacity: .6;
+      font-family: "Roboto", "sans-serif"; }
+  main .btn-ctn-expanded {
+    width: 50%;
+    text-align: right; }
   main .hidden {
     display: none; }
 

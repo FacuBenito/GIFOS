@@ -635,6 +635,23 @@
                 @extend %hover-btn;
             }
         }
+
+        .expanded{
+            flex-flow: column nowrap;
+            justify-content: center;
+
+            i{
+                margin-right: 10rem;
+                align-self: flex-end;
+                justify-self: flex-start;
+                position: initial;
+            }
+        }
+
+        .underbar-expanded{
+            width: 40%;
+            align-self: center;
+        }
         
         .hidden-trending{
             display: none;

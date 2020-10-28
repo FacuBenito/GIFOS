@@ -8,7 +8,8 @@ html[data-theme="light"] {
   --fancy_border: #572EE5;
   --btn_color: #572EE5;
   --btn_hover: white;
-  --li_hover: #50E3C2 ; }
+  --li_hover: #50E3C2 ;
+  --bg-max-view: rgba(255,255,255,0.90); }
 
 html[data-theme="dark"] {
   --background: #37383C;
@@ -20,7 +21,8 @@ html[data-theme="dark"] {
   --fancy_border: #FFF;
   --btn_color: #000000;
   --btn_hover: black;
-  --li_hover: #5ED7C6 ; }
+  --li_hover: #5ED7C6 ;
+  --bg-max-view: rgba(55,56,60,0.90); }
 
 @media screen and (min-width: 1024px) {
   body {
@@ -437,6 +439,17 @@ html[data-theme="dark"] {
       border-radius: 250px;
       width: 50rem;
       height: .5rem; }
+  main .expanded {
+    flex-flow: column nowrap;
+    justify-content: center; }
+    main .expanded i {
+      margin-right: 10rem;
+      align-self: flex-end;
+      justify-self: flex-start;
+      position: initial; }
+  main .underbar-expanded {
+    width: 40%;
+    align-self: center; }
   main .hidden-trending {
     display: none; }
 

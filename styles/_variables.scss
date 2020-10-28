@@ -26,6 +26,7 @@ html[data-theme="light"]{
     --btn_color: #572EE5;
     --btn_hover: white;
     --li_hover: #50E3C2 ;
+    --bg-max-view: rgba(255,255,255,0.90);
 }
 
 html[data-theme="dark"]{
@@ -39,4 +40,5 @@ html[data-theme="dark"]{
     --btn_color: #000000;
     --btn_hover: black;
     --li_hover: #5ED7C6 ;
-}
+    --bg-max-view: rgba(55,56,60,0.90);
+}   
