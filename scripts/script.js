@@ -546,6 +546,7 @@ function addToFavs(btn){
         btn.classList.remove("fav-btn-active");
         favGifs.splice(found, 1);
     }
+    
     let favsAsString = JSON.stringify(favGifs);
     localStorage.setItem("favGIFs", favsAsString);
 }
